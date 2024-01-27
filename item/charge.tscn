@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://item/charge.gd" id="1_vsab6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_chkxl"]
-size = Vector3(1.5, 1.5, 1.5)
+size = Vector3(1.1, 1.1, 1.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_m1bcl"]
 
@@ -18,7 +18,7 @@ emission = Color(0.898039, 0.72549, 0, 1)
 [node name="Charge" type="Node3D"]
 script = ExtResource("1_vsab6")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." groups=["charge_station"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_chkxl")

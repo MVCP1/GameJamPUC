@@ -1,0 +1,8 @@
+extends Area3D
+
+func show_outline() -> void:
+	$MeshInstance3D/Outline.visible = true
+
+
+func hide_outline() -> void:
+	$MeshInstance3D/Outline.visible = false

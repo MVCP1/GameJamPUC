@@ -54,7 +54,7 @@ func getMousePosition():# Get the mouse position in screen coordinates
 func setCameraPosition():
 	#if (Game.get_player().position.distance_to(centerAreaPosition) > playerAreaDistance):
 	
-	var playerToTarget : Vector3 = (getMousePosition() if Game.get_fairy().can_move else Game.get_fairy().global_position ) - Game.get_player().position
+	var playerToTarget : Vector3 = (getMousePosition() if Game.get_fairy()._can_move else Game.get_fairy().global_position ) - Game.get_player().position
 	centerAreaPosition = Game.get_player().position + (playerToTarget.normalized() * min(mouseMaxDistance, playerToTarget.length()/2)) 
 	#centerAreaPosition = Game.get_player().position.move_toward(get_mouse_position(), mouseMaxDistance)
 	var tween = create_tween()

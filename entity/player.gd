@@ -12,13 +12,13 @@ extends CharacterBody3D
 #@onready var _is_on_floor_buffer: bool = false
 @onready var _gravity: float = -ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var _move_direction := Vector3.ZERO
-@onready var _grabber_detector := $GrabberDetector
+@onready var _interact_detector := $InteractDetector
 @onready var _is_grabbing: bool = false
 
 func _physics_process(delta: float) -> void:
 	var is_just_jumping: bool = Input.is_action_just_pressed("space") and is_on_floor()
 	var just_stopped_jump: bool = Input.is_action_just_released("space") and velocity.y > 0 and not is_on_floor()
-	var is_trying_to_grab: bool = Input.is_action_pressed("grab")
+	var is_trying_to_interact: bool = Input.is_action_pressed("interact")
 
 	_move_direction = _get_input_direction()
 	if not _is_grabbing:
@@ -48,8 +48,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y /= 2
 	
 	
-	if is_trying_to_grab:
-		_is_grabbing = _grab_and_move(Vector3(velocity.x, 0, velocity.z) * moving_objects_speed_modifier)
+	if is_trying_to_interact:
+		_try_to_interact(Vector3(velocity.x, 0, velocity.z) * moving_objects_speed_modifier)
 
 	if _is_grabbing:
 		velocity = velocity * moving_objects_speed_modifier
@@ -76,15 +76,20 @@ func _orient_to_direction(direction: Vector3, delta: float) -> void:
 	transform.basis = Basis(transform.basis.get_rotation_quaternion().slerp(rotation_basis, delta * rotation_speed))
 
 
-func _grab_and_move(vel_move: Vector3) -> bool:
-	if not _grabber_detector.has_overlapping_bodies():
-		return false
+func _try_to_interact(vel_move: Vector3) -> void:
+	if not _interact_detector.has_overlapping_bodies():
+		return
 	
-	var bodies: Array[Node3D] = _grabber_detector.get_overlapping_bodies()
+	var bodies: Array[Node3D] = _interact_detector.get_overlapping_bodies()
 	
+	# try freeing fairy
+	for body in bodies:
+		if body.is_in_group("fairy"):
+			body.liberate()
+	
+	# try grabbing
 	for body in bodies:
 		if body.is_in_group("movable"):
 			body.velocity = vel_move
 			body.move_and_slide()
-	
-	return true
+			_is_grabbing = true
