@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfstt1cttjn45"]
+
+[ext_resource type="Texture2D" uid="uid://cvyn2h0kfv3l5" path="res://asset/Prototype Textures/Orange/texture_05.png" id="1_edkyd"]
+[ext_resource type="Script" path="res://map/movable_box.gd" id="1_qwxar"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_88e04"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jvjl"]
+albedo_color = Color(1, 0.00784314, 0, 1)
+albedo_texture = ExtResource("1_edkyd")
+metallic_specular = 1.0
+roughness = 0.25
+ao_enabled = true
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_mbqv1"]
+
+[node name="MovableBox" type="CharacterBody3D" groups=["movable"]]
+script = ExtResource("1_qwxar")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+shape = SubResource("BoxShape3D_88e04")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_7jvjl")
+mesh = SubResource("BoxMesh_mbqv1")
