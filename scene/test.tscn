@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxhb0wx45owjr"]
+[gd_scene load_steps=5 format=3 uid="uid://cxhb0wx45owjr"]
 
 [ext_resource type="PackedScene" uid="uid://nlidij6kaaek" path="res://entity/player.tscn" id="2_nf5h7"]
+[ext_resource type="PackedScene" uid="uid://bfstt1cttjn45" path="res://map/movable_box.tscn" id="2_oqqrs"]
 [ext_resource type="PackedScene" uid="uid://c484e3nk3hpmf" path="res://map/box.tscn" id="2_yahha"]
 [ext_resource type="PackedScene" uid="uid://caswk7rd54bhd" path="res://utility/camera.tscn" id="3_hegle"]
 
@@ -65,12 +66,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99022, 2.97088, -6.00434)
 [node name="box19" parent="Node3D" instance=ExtResource("2_yahha")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99022, 1.97088, -5.00434)
 
+[node name="MovableBox" parent="Node3D" instance=ExtResource("2_oqqrs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90541, 1.12298, 0.0222561)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.999168, 0.0268473, 0.030715, -0.0407945, 0.657564, 0.752294, 0, -0.752921, 0.658111, 0, 5.24456, 0)
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("2_nf5h7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68034, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05086, 0)
 
 [node name="Camera" parent="." instance=ExtResource("3_hegle")]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 5, 7.071, 5)

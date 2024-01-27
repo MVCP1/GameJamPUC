@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://entity/player.gd" id="1_2y2i6"]
 [ext_resource type="ArrayMesh" uid="uid://fmei57yf86n1" path="res://asset/Mini Dungeon/character-human.obj" id="1_advhw"]
-[ext_resource type="Texture2D" uid="uid://ix4qrxbrpeim" path="res://icon.svg" id="3_8xgqf"]
 [ext_resource type="Texture2D" uid="uid://bxd24qoo0ftgn" path="res://asset/Mini Dungeon/Textures/colormap.png" id="3_m0hiq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y6jse"]
@@ -52,8 +51,12 @@ transparency = 4
 vertex_color_is_srgb = true
 albedo_texture = ExtResource("3_m0hiq")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_i6nhx"]
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_2y2i6")
+acceleration = 10.0
+jump_initial_impulse = 5.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
@@ -73,10 +76,8 @@ surface_material_override/3 = SubResource("StandardMaterial3D_btepa")
 surface_material_override/4 = SubResource("StandardMaterial3D_7beb0")
 surface_material_override/5 = SubResource("StandardMaterial3D_mtoat")
 
-[node name="Decal" type="Decal" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00551462, -49.9974, -0.00205088)
-size = Vector3(0.5, 100, 0.5)
-texture_albedo = ExtResource("3_8xgqf")
-normal_fade = 0.999
-upper_fade = 1.26681e-05
-lower_fade = 1e-05
+[node name="GrabberDetector" type="Area3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.0645884, 0.248468, -0.34997)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GrabberDetector"]
+shape = SubResource("SphereShape3D_i6nhx")
