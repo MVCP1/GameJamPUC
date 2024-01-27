@@ -31,7 +31,7 @@ detail_enabled = true
 detail_blend_mode = 1
 detail_uv_layer = 1
 
-[node name="MovableBox" type="CharacterBody3D" groups=["has_outline", "movable"]]
+[node name="MovableBox" type="CharacterBody3D" groups=["can_press", "has_outline", "movable"]]
 script = ExtResource("1_qwxar")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

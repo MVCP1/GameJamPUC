@@ -52,11 +52,9 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_l5uqd"]
 radius = 1.82
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_pdhhf"]
-radius = 0.2
+[sub_resource type="SphereShape3D" id="SphereShape3D_4wllr"]
 
-[node name="Fairy" type="CharacterBody3D" groups=["fairy"]]
-
+[node name="Fairy" type="CharacterBody3D"]
 script = ExtResource("1_2ouis")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -66,7 +64,6 @@ skeleton = NodePath("../..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
 light_energy = 4.243
-omni_range = 8.1342
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_0vpjy")
@@ -98,20 +95,10 @@ step = 1.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ToggleOutlineArea"]
 shape = SubResource("SphereShape3D_l5uqd")
 
-
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_4wllr")
 
-
-[node name="ChargeArea" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ChargeArea"]
-shape = SubResource("SphereShape3D_pdhhf")
-
-[connection signal="area_entered" from="ToggleOutlineArea" to="." method="_on_toggle_outline_area_area_entered"]
-[connection signal="area_exited" from="ToggleOutlineArea" to="." method="_on_toggle_outline_area_area_exited"]
 [connection signal="body_entered" from="ToggleOutlineArea" to="." method="_on_toggle_outline_area_body_entered"]
 [connection signal="body_exited" from="ToggleOutlineArea" to="." method="_on_toggle_outline_area_body_exited"]
-[connection signal="area_entered" from="ChargeArea" to="." method="_on_charge_area_area_entered"]

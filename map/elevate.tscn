@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm2g6fh53wi8"]
+
+[ext_resource type="Script" path="res://map/elevate.gd" id="1_7d8da"]
+[ext_resource type="Texture2D" uid="uid://cvyn2h0kfv3l5" path="res://asset/Prototype Textures/Orange/texture_05.png" id="1_t8wvc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_54svo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8w5oj"]
+albedo_texture = ExtResource("1_t8wvc")
+metallic_specular = 1.0
+roughness = 0.25
+ao_enabled = true
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_1qiwd"]
+
+[node name="elevate" type="StaticBody3D"]
+script = ExtResource("1_7d8da")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+shape = SubResource("BoxShape3D_54svo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_8w5oj")
+mesh = SubResource("BoxMesh_1qiwd")
+
+[node name="End" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Start" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
