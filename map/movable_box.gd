@@ -8,6 +8,14 @@ const JUMP_VELOCITY = 4.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
+func show_outline() -> void:
+	$CollisionShape3D/MeshInstance3D/Outline.visible = true
+
+
+func hide_outline() -> void:
+	$CollisionShape3D/MeshInstance3D/Outline.visible = false
+
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():

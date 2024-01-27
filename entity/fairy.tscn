@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://8nsp36ic37w6"]
+[gd_scene load_steps=9 format=3 uid="uid://8nsp36ic37w6"]
 
 [ext_resource type="Script" path="res://entity/fairy.gd" id="1_2ouis"]
 
@@ -13,6 +13,20 @@ material = SubResource("StandardMaterial3D_hjao7")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0vpjy"]
 radius = 0.203805
+
+[sub_resource type="Animation" id="Animation_kaqoa"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_ngny0"]
 resource_name = "idle"
@@ -29,25 +43,14 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1)
 }
 
-[sub_resource type="Animation" id="Animation_kaqoa"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yx81q"]
 _data = {
 "RESET": SubResource("Animation_kaqoa"),
 "idle": SubResource("Animation_ngny0")
 }
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_l5uqd"]
+radius = 1.82
 
 [node name="Fairy" type="CharacterBody3D"]
 script = ExtResource("1_2ouis")
@@ -76,3 +79,11 @@ offset_top = 35.0
 offset_right = 358.0
 offset_bottom = 62.0
 value = 20.0
+
+[node name="ToggleOutlineArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ToggleOutlineArea"]
+shape = SubResource("SphereShape3D_l5uqd")
+
+[connection signal="body_entered" from="ToggleOutlineArea" to="." method="_on_toggle_outline_area_body_entered"]
+[connection signal="body_exited" from="ToggleOutlineArea" to="." method="_on_toggle_outline_area_body_exited"]
