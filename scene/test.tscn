@@ -95,6 +95,10 @@ light_negative = true
 
 [node name="Player" parent="." instance=ExtResource("2_nf5h7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05086, 0)
+move_speed = 4.5
+rotation_speed = 9.0
+stopping_speed = 2.0
+moving_objects_speed_modifier = 0.7
 
 [node name="Fairy" parent="." instance=ExtResource("3_3xkhv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33862, -1.42814)
