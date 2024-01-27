@@ -52,7 +52,7 @@ vertex_color_is_srgb = true
 albedo_texture = ExtResource("3_m0hiq")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_i6nhx"]
-radius = 0.8
+radius = 1.0
 
 [node name="Player" type="CharacterBody3D" groups=["can_press"]]
 script = ExtResource("1_2y2i6")
@@ -81,5 +81,5 @@ surface_material_override/5 = SubResource("StandardMaterial3D_mtoat")
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.0645884, 0.248468, -0.34997)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.220946, 0.545061, -0.181539)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.220946, 0.839804, -0.181539)
 shape = SubResource("SphereShape3D_i6nhx")

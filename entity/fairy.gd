@@ -31,6 +31,8 @@ func _ready():
 	$Energy.value = 100.0
 	$MeshInstance3D/OmniLight3D.light_energy = max_light
 	$ToggleOutlineArea/CollisionShape3D.shape.radius = toggle_outline_radius
+	
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -132,7 +134,6 @@ func _on_toggle_outline_area_area_exited(area):
 
 func _on_charge_area_area_entered(area):
 	if area.is_in_group("charge_station"):
-		print("ENTROU")
 		max_y_offset = 0.2
 		for _i in range(10):
 			move(1)
@@ -141,6 +142,7 @@ func _on_charge_area_area_entered(area):
 
 
 func liberate() -> void:
-	_is_charging = false
-	_can_move = true
-	max_y_offset = 1
+	if _is_charging:
+		_is_charging = false
+		_can_move = true
+		max_y_offset = 1
