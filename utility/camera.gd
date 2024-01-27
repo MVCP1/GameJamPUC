@@ -1,6 +1,6 @@
 extends Camera3D
 
-const upVector = Vector3(1,sqrt(2),1)*3
+const upVector = Vector3(1,sqrt(2),1)*10
 
 var mouseMaxDistance: float = 2.5
 var centerAreaPosition: Vector3
@@ -40,10 +40,12 @@ func getMousePosition():# Get the mouse position in screen coordinates
 	var intersection_point = Plane(Vector3(0, 1, 0), Game.get_player().position.y).intersects_ray(ray_origin, ray_direction)
 	return intersection_point if intersection_point else Vector3(0,0,0)
 
+
 func setCameraPosition():
 	#if (Game.get_player().position.distance_to(centerAreaPosition) > playerAreaDistance):
-	var playerToMouse : Vector3 = getMousePosition() - Game.get_player().position
-	centerAreaPosition = Game.get_player().position + (playerToMouse.normalized() * min(mouseMaxDistance, playerToMouse.length()/2)) 
+	
+	var playerToTarget : Vector3 = (getMousePosition() if Game.get_fairy().can_move else Game.get_fairy().global_position ) - Game.get_player().position
+	centerAreaPosition = Game.get_player().position + (playerToTarget.normalized() * min(mouseMaxDistance, playerToTarget.length()/2)) 
 	#centerAreaPosition = Game.get_player().position.move_toward(get_mouse_position(), mouseMaxDistance)
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)

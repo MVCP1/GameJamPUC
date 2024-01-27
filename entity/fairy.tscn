@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://8nsp36ic37w6"]
+[gd_scene load_steps=8 format=3 uid="uid://8nsp36ic37w6"]
 
 [ext_resource type="Script" path="res://entity/fairy.gd" id="1_2ouis"]
 
@@ -11,11 +11,68 @@ emission_energy_multiplier = 4.29
 [sub_resource type="SphereMesh" id="SphereMesh_74yjs"]
 material = SubResource("StandardMaterial3D_hjao7")
 
-[node name="Fairy" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.71111, 0)
-mesh = SubResource("SphereMesh_74yjs")
-skeleton = NodePath("../..")
+[sub_resource type="SphereShape3D" id="SphereShape3D_0vpjy"]
+radius = 0.203805
+
+[sub_resource type="Animation" id="Animation_ngny0"]
+resource_name = "idle"
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.1, -0.25, 0, 0.25, 0, -0.1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_kaqoa"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yx81q"]
+_data = {
+"RESET": SubResource("Animation_kaqoa"),
+"idle": SubResource("Animation_ngny0")
+}
+
+[node name="Fairy" type="CharacterBody3D"]
 script = ExtResource("1_2ouis")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = SubResource("SphereMesh_74yjs")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
 light_energy = 4.243
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_0vpjy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yx81q")
+}
+autoplay = "idle"
+
+[node name="Energy" type="ProgressBar" parent="."]
+modulate = Color(1, 1, 0, 1)
+offset_left = 40.0
+offset_top = 35.0
+offset_right = 358.0
+offset_bottom = 62.0
+value = 20.0
