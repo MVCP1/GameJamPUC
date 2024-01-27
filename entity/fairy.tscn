@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://8nsp36ic37w6"]
+[gd_scene load_steps=9 format=3 uid="uid://8nsp36ic37w6"]
 
 [ext_resource type="Script" path="res://entity/fairy.gd" id="1_2ouis"]
 
@@ -49,6 +49,9 @@ _data = {
 "idle": SubResource("Animation_ngny0")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_l5uqd"]
+radius = 1.82
+
 [node name="Fairy" type="CharacterBody3D"]
 script = ExtResource("1_2ouis")
 
@@ -76,3 +79,11 @@ offset_top = 35.0
 offset_right = 358.0
 offset_bottom = 62.0
 value = 20.0
+
+[node name="ToggleOutlineArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ToggleOutlineArea"]
+shape = SubResource("SphereShape3D_l5uqd")
+
+[connection signal="body_entered" from="ToggleOutlineArea" to="." method="_on_toggle_outline_area_body_entered"]
+[connection signal="body_exited" from="ToggleOutlineArea" to="." method="_on_toggle_outline_area_body_exited"]

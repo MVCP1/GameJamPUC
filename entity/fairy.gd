@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@export var toggle_outline_radius: float = 3.5
+
 const maxSpeed = 15
 const slowSpeed = 5
 const minSpeed = 1
@@ -22,11 +24,11 @@ var can_move = true
 func _ready():
 	$Energy.value = 100.0
 	$MeshInstance3D/OmniLight3D.light_energy = max_light
-	pass # Replace with function body.
+	$ToggleOutlineArea/CollisionShape3D.shape.radius = toggle_outline_radius
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed('click'):
 		can_move = not can_move
 		
@@ -48,3 +50,14 @@ func _process(delta):
 
 func add_charge(multiplier:float=1):
 	$Energy.value += $Energy.step*multiplier
+
+
+func _on_toggle_outline_area_body_entered(body):
+	if body.is_in_group("has_outline"):
+		body.show_outline()
+
+
+func _on_toggle_outline_area_body_exited(body):
+	if body.is_in_group("has_outline"):
+		body.hide_outline()
+

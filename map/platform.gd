@@ -14,8 +14,9 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Game.get_fairy().global_position.distance_to($box.global_position) > fairy_distance:
+
 		active = not likes_fairy
 	else:
 		active = likes_fairy

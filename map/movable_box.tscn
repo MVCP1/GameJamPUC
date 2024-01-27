@@ -1,22 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfstt1cttjn45"]
+[gd_scene load_steps=7 format=3 uid="uid://bfstt1cttjn45"]
 
-[ext_resource type="Texture2D" uid="uid://cvyn2h0kfv3l5" path="res://asset/Prototype Textures/Orange/texture_05.png" id="1_edkyd"]
 [ext_resource type="Script" path="res://map/movable_box.gd" id="1_qwxar"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_88e04"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jvjl"]
-albedo_color = Color(1, 0.00784314, 0, 1)
-albedo_texture = ExtResource("1_edkyd")
-metallic_specular = 1.0
-roughness = 0.25
-ao_enabled = true
-uv1_triplanar = true
-uv1_world_triplanar = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f74ud"]
+albedo_color = Color(0.913725, 0, 0, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_mbqv1"]
+[sub_resource type="BoxMesh" id="BoxMesh_cqgk4"]
 
-[node name="MovableBox" type="CharacterBody3D" groups=["movable"]]
+[sub_resource type="ArrayMesh" id="ArrayMesh_fpi5d"]
+_surfaces = [{
+"aabb": AABB(-0.528867, -0.528867, -0.528867, 1.05773, 1.05774, 1.05774),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 171, 170, 42, 63, 0, 0, 0, 0, 171, 170, 170, 62, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 171, 170, 42, 63, 0, 0, 0, 63, 171, 170, 170, 62, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 63, 171, 170, 170, 62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 171, 170, 42, 63, 0, 0, 0, 0, 171, 170, 170, 62, 0, 0, 0, 63, 171, 170, 170, 62, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 128, 63, 171, 170, 42, 63, 0, 0, 0, 63, 171, 170, 170, 62, 0, 0, 128, 63, 171, 170, 170, 62, 0, 0, 0, 63, 171, 170, 42, 63, 0, 0, 0, 63, 171, 170, 42, 63, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 63, 171, 170, 170, 62, 0, 0, 128, 63, 171, 170, 42, 63, 0, 0, 128, 63, 171, 170, 42, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 4, 0, 2, 0, 2, 0, 4, 0, 6, 0, 1, 0, 5, 0, 3, 0, 3, 0, 5, 0, 7, 0, 8, 0, 12, 0, 10, 0, 10, 0, 12, 0, 14, 0, 9, 0, 13, 0, 11, 0, 11, 0, 13, 0, 15, 0, 16, 0, 20, 0, 18, 0, 18, 0, 20, 0, 22, 0, 17, 0, 21, 0, 19, 0, 19, 0, 21, 0, 23, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 191, 220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 191, 220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 191, 220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 191, 220, 99, 7, 191, 220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 191, 220, 99, 7, 191, 220, 99, 7, 191, 220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 63, 220, 99, 7, 191, 220, 99, 7, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 0, 128, 255, 255, 255, 255, 0, 0, 0, 128, 255, 127, 255, 191, 255, 255, 0, 128, 255, 255, 255, 255, 0, 0, 0, 128, 255, 127, 255, 191, 255, 255, 0, 128, 255, 255, 255, 255, 0, 0, 0, 128, 255, 127, 255, 191, 255, 255, 0, 128, 255, 255, 255, 255, 0, 0, 0, 128, 255, 127, 255, 191, 0, 128, 255, 255, 0, 0, 255, 191, 0, 128, 0, 0, 255, 255, 255, 191, 0, 128, 255, 255, 0, 0, 255, 191, 0, 128, 0, 0, 255, 255, 255, 191, 0, 128, 255, 255, 0, 0, 255, 191, 0, 128, 0, 0, 255, 255, 255, 191, 0, 128, 255, 255, 0, 0, 255, 191, 0, 128, 0, 0, 255, 255, 255, 191)
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdtik"]
+transparency = 1
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+detail_enabled = true
+detail_blend_mode = 1
+detail_uv_layer = 1
+
+[node name="MovableBox" type="CharacterBody3D" groups=["has_outline", "movable"]]
 script = ExtResource("1_qwxar")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -24,5 +39,11 @@ transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 shape = SubResource("BoxShape3D_88e04")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-material_override = SubResource("StandardMaterial3D_7jvjl")
-mesh = SubResource("BoxMesh_mbqv1")
+material_override = SubResource("StandardMaterial3D_f74ud")
+mesh = SubResource("BoxMesh_cqgk4")
+
+[node name="Outline" type="MeshInstance3D" parent="CollisionShape3D/MeshInstance3D"]
+visible = false
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_fpi5d")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdtik")
