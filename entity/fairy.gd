@@ -11,7 +11,7 @@ const distance_min = 0.1
 const min_size = 0.18
 const max_size = 0.25
 
-const max_y_offset = 1.5
+const max_y_offset = 1
 
 const max_light = 5.0
 const min_light = 0.5
@@ -40,7 +40,11 @@ func _process(delta):
 		if(distance > distance_min):
 			direction += (mouse - global_position).normalized()*2
 			direction = direction.normalized()
-			velocity = direction*clamp(distance, minSpeed, slowSpeed+(maxSpeed-slowSpeed)*percent)
+			var speed = clamp(distance, minSpeed, slowSpeed+(maxSpeed-slowSpeed)*percent)
+			velocity = direction*speed
 			move_and_slide()
-			$Energy.value -= $Energy.step*clamp(distance, minSpeed, maxSpeed)
+			add_charge(-speed)
 	pass
+
+func add_charge(multiplier:float=1):
+	$Energy.value += $Energy.step*multiplier

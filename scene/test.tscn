@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxhb0wx45owjr"]
+[gd_scene load_steps=13 format=3 uid="uid://cxhb0wx45owjr"]
 
 [ext_resource type="PackedScene" uid="uid://nlidij6kaaek" path="res://entity/player.tscn" id="2_nf5h7"]
 [ext_resource type="PackedScene" uid="uid://bfstt1cttjn45" path="res://map/movable_box.tscn" id="2_oqqrs"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://caswk7rd54bhd" path="res://utility/camera.tscn" id="3_hegle"]
 [ext_resource type="PackedScene" uid="uid://ckl7l6l84vgwb" path="res://map/platform.tscn" id="4_4ia5w"]
 [ext_resource type="Script" path="res://map/platform.gd" id="5_hbru6"]
+[ext_resource type="PackedScene" uid="uid://dcqjhr5kfbj21" path="res://item/charge.tscn" id="8_ss5e1"]
+[ext_resource type="PackedScene" uid="uid://b5seaexu7yy8n" path="res://item/crystal.tscn" id="9_lxx5w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_54svo"]
 
@@ -70,6 +72,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000610113, 3.99488, -7.9859
 [node name="box17" parent="Node3D" instance=ExtResource("2_yahha")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99022, 3.97088, -8.00434)
 
+[node name="box20" parent="Node3D" instance=ExtResource("2_yahha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.99022, 3.97088, -8.00434)
+
 [node name="box18" parent="Node3D" instance=ExtResource("2_yahha")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99022, 2.97088, -6.00434)
 
@@ -120,5 +125,14 @@ mesh = SubResource("BoxMesh_6nq4a")
 
 [node name="End" type="Marker3D" parent="Plataform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.8963)
+
+[node name="Charge" parent="." instance=ExtResource("8_ss5e1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -1)
+
+[node name="Charge2" parent="." instance=ExtResource("9_lxx5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.13127, 0.5, -5.48824)
+
+[node name="Charge3" parent="." instance=ExtResource("9_lxx5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.96067, 4.47088, -7.9634)
 
 [editable path="platform"]

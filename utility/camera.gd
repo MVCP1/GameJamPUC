@@ -4,6 +4,7 @@ const upVector = Vector3(1,sqrt(2),1)*10
 
 var mouseMaxDistance: float = 2.5
 var centerAreaPosition: Vector3
+var RAY_LENGTH = 100
 
 var shake: float = 0
 var shakeSlowRate: float = 10
@@ -13,6 +14,8 @@ enum shakeTypeList {
 	FALLS,
 	DAMAGE
 }
+
+const plane_projection = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,9 +39,16 @@ func getMousePosition():# Get the mouse position in screen coordinates
 	# Project the mouse position onto the 3D world
 	var ray_origin = project_ray_origin(mouse_pos_screen)
 	var ray_direction = project_ray_normal(mouse_pos_screen)
-	# Calculate the intersection point with the plane at y = 0 (assuming a flat ground)
+	var ray_end = ray_origin + project_ray_normal(mouse_pos_screen) * RAY_LENGTH
+	
+	var space_state = get_world_3d().direct_space_state
+	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
+	var result = space_state.intersect_ray(query)
 	var intersection_point = Plane(Vector3(0, 1, 0), Game.get_player().position.y).intersects_ray(ray_origin, ray_direction)
-	return intersection_point if intersection_point else Vector3(0,0,0)
+	if plane_projection:
+		return intersection_point if intersection_point else Vector3(0,0,0)
+	else:
+		return result.position if result else intersection_point
 
 
 func setCameraPosition():

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcqjhr5kfbj21"]
+
+[ext_resource type="Script" path="res://item/charge.gd" id="1_vsab6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_chkxl"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m1bcl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usjpr"]
+transparency = 1
+albedo_color = Color(1, 0.760784, 0.156863, 0.317647)
+metallic_specular = 1.0
+roughness = 0.0
+emission_enabled = true
+emission = Color(0.898039, 0.72549, 0, 1)
+
+[node name="Charge" type="Node3D"]
+script = ExtResource("1_vsab6")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_chkxl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("BoxMesh_m1bcl")
+skeleton = NodePath("../CollisionShape3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_usjpr")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
