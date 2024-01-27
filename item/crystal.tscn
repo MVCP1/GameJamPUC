@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5seaexu7yy8n"]
+[gd_scene load_steps=8 format=3 uid="uid://b5seaexu7yy8n"]
 
 [ext_resource type="Script" path="res://item/crystal.gd" id="1_j7q1w"]
+[ext_resource type="Script" path="res://item/crystal_area3d.gd" id="2_jad8i"]
 [ext_resource type="ArrayMesh" uid="uid://cmagctc7yhuhg" path="res://asset/Mini Dungeon/stones.obj" id="2_tcf7w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_chkxl"]
@@ -33,7 +34,8 @@ shading_mode = 0
 [node name="Crystal" type="Node3D"]
 script = ExtResource("1_j7q1w")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." groups=["has_outline"]]
+script = ExtResource("2_jad8i")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.759781, 0)
