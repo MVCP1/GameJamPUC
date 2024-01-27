@@ -37,8 +37,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-
-  if Input.is_action_just_pressed('l_click') and not _is_charging:
+	if Input.is_action_just_pressed('l_click') and not _is_charging:
 		_can_move = not _can_move
 	if Input.is_action_pressed('r_click'):
 		charging_pulse = true
@@ -83,7 +82,7 @@ func pulse():
 		var pulse_multiplier = $Pulse.value/min_pulse_charge
 		var pulse_percent = $Pulse.value/$Pulse.max_value
 		print(pulse_multiplier)
-		$Area3D/CollisionShape3D.scale = Vector3(1,1,1)*pulse_multiplier
+		$PulseArea/CollisionShape3D.scale = Vector3(1,1,1)*pulse_multiplier
 		var grow_tween = create_tween()
 		#grow_tween.set_ease(Tween.EASE_OUT)
 		grow_tween.set_trans(Tween.TRANS_ELASTIC)
@@ -91,7 +90,7 @@ func pulse():
 		#$MeshInstance3D/OmniLight3D.light_energy = max_light*pulse_multiplier
 		grow_tween.connect("finished", on_grow_tween_finished)
 		
-		for body in $Area3D.get_overlapping_bodies():
+		for body in $PulseArea.get_overlapping_bodies():
 			print(body)
 	charging_pulse = false
 	$Pulse.value = 0

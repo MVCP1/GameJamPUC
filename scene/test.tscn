@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxhb0wx45owjr"]
+[gd_scene load_steps=18 format=3 uid="uid://cxhb0wx45owjr"]
 
 [ext_resource type="PackedScene" uid="uid://crdp5f1iar5n5" path="res://map/tile_box.tscn" id="1_fcksi"]
 [ext_resource type="PackedScene" uid="uid://nlidij6kaaek" path="res://entity/player.tscn" id="2_nf5h7"]
@@ -11,16 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://dcqjhr5kfbj21" path="res://item/charge.tscn" id="8_ss5e1"]
 [ext_resource type="PackedScene" uid="uid://b5seaexu7yy8n" path="res://item/crystal.tscn" id="9_lxx5w"]
 [ext_resource type="PackedScene" uid="uid://bb2sap67bu1sb" path="res://entity/mob.tscn" id="10_a004i"]
+[ext_resource type="PackedScene" uid="uid://ctrw2n1rt0tfg" path="res://item/button.tscn" id="10_t4nuu"]
+[ext_resource type="PackedScene" uid="uid://bm2g6fh53wi8" path="res://map/elevate.tscn" id="11_uqn5m"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_feplc"]
 vertices = PackedVector3Array(-8.76705, 0.976624, -10.5768, -8.76705, 0.976624, 10.6732, 8.73295, 0.976624, 10.6732, 8.73295, 0.976624, -10.5768)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 agent_height = 0.34
 agent_radius = 0.92
-
-[ext_resource type="PackedScene" uid="uid://ctrw2n1rt0tfg" path="res://item/button.tscn" id="10_t4nuu"]
-[ext_resource type="PackedScene" uid="uid://bm2g6fh53wi8" path="res://map/elevate.tscn" id="11_uqn5m"]
-
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_54svo"]
 
@@ -101,10 +99,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99022, 1.97088, -5.00434)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90541, 1.12298, 0.0222561)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-
-transform = Transform3D(0.731026, 0.576642, 0.364808, -0.649882, 0.425427, 0.629814, 0.207978, -0.697493, 0.685747, -6.92634, 3.66697, -1.4051)
-visible = false
-
 transform = Transform3D(0.731026, 0.576642, 0.364808, -0.649882, 0.425427, 0.629814, 0.207978, -0.697493, 0.685747, -6.79944, 3.64611, -4.76837e-07)
 visible = false
 light_energy = 0.1
@@ -158,7 +152,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.13127, 0.5, -5.48824)
 
 [node name="Crystal2" parent="Charges" instance=ExtResource("9_lxx5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.96067, 4.47088, -7.9634)
-
 
 [node name="Mob" parent="." instance=ExtResource("10_a004i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33585, 0.70593, -0.861059)
