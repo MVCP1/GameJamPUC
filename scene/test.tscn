@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxhb0wx45owjr"]
+[gd_scene load_steps=10 format=3 uid="uid://cxhb0wx45owjr"]
 
 [ext_resource type="PackedScene" uid="uid://nlidij6kaaek" path="res://entity/player.tscn" id="2_nf5h7"]
 [ext_resource type="PackedScene" uid="uid://bfstt1cttjn45" path="res://map/movable_box.tscn" id="2_oqqrs"]
 [ext_resource type="PackedScene" uid="uid://c484e3nk3hpmf" path="res://map/box.tscn" id="2_yahha"]
+[ext_resource type="PackedScene" uid="uid://8nsp36ic37w6" path="res://entity/fairy.tscn" id="3_3xkhv"]
 [ext_resource type="PackedScene" uid="uid://caswk7rd54bhd" path="res://utility/camera.tscn" id="3_hegle"]
+[ext_resource type="PackedScene" uid="uid://ckl7l6l84vgwb" path="res://map/platform.tscn" id="4_4ia5w"]
+[ext_resource type="Script" path="res://map/platform.gd" id="5_hbru6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_54svo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfs5l"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6nq4a"]
 
 [node name="Main" type="Node3D"]
 
@@ -13,7 +23,7 @@
 transform = Transform3D(20.532, 0, 0, 0, 1, 0, 0, 0, 19.6741, -0.237894, 0, -0.468285)
 
 [node name="box2" parent="Node3D" instance=ExtResource("2_yahha")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -8)
 
 [node name="box3" parent="Node3D" instance=ExtResource("2_yahha")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -7)
@@ -28,34 +38,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 3, -7)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, -7)
 
 [node name="box7" parent="Node3D" instance=ExtResource("2_yahha")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -8)
 
 [node name="box8" parent="Node3D" instance=ExtResource("2_yahha")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -8)
 
 [node name="box9" parent="Node3D" instance=ExtResource("2_yahha")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -8)
 
 [node name="box10" parent="Node3D" instance=ExtResource("2_yahha")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -8)
 
 [node name="box11" parent="Node3D" instance=ExtResource("2_yahha")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, -8)
 
 [node name="box12" parent="Node3D" instance=ExtResource("2_yahha")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -8)
 
 [node name="box13" parent="Node3D" instance=ExtResource("2_yahha")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -8)
 
 [node name="box14" parent="Node3D" instance=ExtResource("2_yahha")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, -8)
 
 [node name="box15" parent="Node3D" instance=ExtResource("2_yahha")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, -8)
 
 [node name="box16" parent="Node3D" instance=ExtResource("2_yahha")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99939, 3.99488, -7.98591)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000610113, 3.99488, -7.98591)
 
 [node name="box17" parent="Node3D" instance=ExtResource("2_yahha")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99022, 3.97088, -8.00434)
@@ -70,13 +80,45 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99022, 1.97088, -5.00434)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90541, 1.12298, 0.0222561)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.999168, 0.0268473, 0.030715, -0.0407945, 0.657564, 0.752294, 0, -0.752921, 0.658111, 0, 5.24456, 0)
-visible = false
+transform = Transform3D(0.731026, 0.576642, 0.364808, -0.649882, 0.425427, 0.629814, 0.207978, -0.697493, 0.685747, -6.79944, 3.64611, -4.76837e-07)
+light_angular_distance = 46.21
+light_negative = true
 
 [node name="Player" parent="." instance=ExtResource("2_nf5h7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05086, 0)
+
+[node name="Fairy" parent="." instance=ExtResource("3_3xkhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33862, -1.42814)
 
 [node name="Camera" parent="." instance=ExtResource("3_hegle")]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 5, 7.071, 5)
 current = true
 size = 9.745
+
+[node name="platform" parent="." instance=ExtResource("4_4ia5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4, -8)
+
+[node name="End" parent="platform" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0.00787926)
+
+[node name="Plataform" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, -7)
+script = ExtResource("5_hbru6")
+likes_fairy = false
+
+[node name="Start" type="Marker3D" parent="Plataform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0835342)
+
+[node name="box" type="AnimatableBody3D" parent="Plataform"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plataform/box"]
+shape = SubResource("BoxShape3D_54svo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Plataform/box/CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_rfs5l")
+mesh = SubResource("BoxMesh_6nq4a")
+
+[node name="End" type="Marker3D" parent="Plataform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.8963)
+
+[editable path="platform"]

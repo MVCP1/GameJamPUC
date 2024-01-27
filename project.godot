@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Soul Forger"
+config/name="GameJamPUC"
 run/main_scene="res://scene/test.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"

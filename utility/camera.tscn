@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://caswk7rd54bhd"]
+[gd_scene load_steps=7 format=3 uid="uid://caswk7rd54bhd"]
 
 [ext_resource type="Script" path="res://utility/camera.gd" id="1_u5qjr"]
-[ext_resource type="PackedScene" uid="uid://8nsp36ic37w6" path="res://entity/fairy.tscn" id="2_q8mke"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ysnxg"]
 
@@ -40,8 +39,6 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.38419e-07, 4.2339
 mesh = SubResource("SphereMesh_ysnxg")
 surface_material_override/0 = SubResource("StandardMaterial3D_p72u3")
 script = SubResource("GDScript_y3wc8")
-
-[node name="Fairy" parent="mouse" instance=ExtResource("2_q8mke")]
 
 [node name="centerArea" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.38419e-07, 4.23399, -0.0961151)

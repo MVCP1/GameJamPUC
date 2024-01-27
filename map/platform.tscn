@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckl7l6l84vgwb"]
+
+[ext_resource type="Script" path="res://map/platform.gd" id="1_onxfn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_54svo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfs5l"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6nq4a"]
+
+[node name="Plataform" type="Node3D"]
+script = ExtResource("1_onxfn")
+
+[node name="Start" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0835342)
+
+[node name="box" type="AnimatableBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="box"]
+shape = SubResource("BoxShape3D_54svo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="box/CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_rfs5l")
+mesh = SubResource("BoxMesh_6nq4a")
+
+[node name="End" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.45823)
