@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cseiy6tp2ku5v"
+path="res://.godot/imported/banner.obj-bd170e1779d1e4fbfb4bc2dc95dffc11.mesh"
+
+[deps]
+
+files=["res://.godot/imported/banner.obj-bd170e1779d1e4fbfb4bc2dc95dffc11.mesh"]
+
+source_file="res://asset/Mini Dungeon/banner.obj"
+dest_files=["res://.godot/imported/banner.obj-bd170e1779d1e4fbfb4bc2dc95dffc11.mesh", "res://.godot/imported/banner.obj-bd170e1779d1e4fbfb4bc2dc95dffc11.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

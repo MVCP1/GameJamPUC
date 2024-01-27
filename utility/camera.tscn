@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://caswk7rd54bhd"]
+
+[ext_resource type="Script" path="res://utility/camera.gd" id="1_u5qjr"]
+[ext_resource type="PackedScene" uid="uid://8nsp36ic37w6" path="res://entity/fairy.tscn" id="2_q8mke"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ysnxg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p72u3"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_y3wc8"]
+script/source = "extends MeshInstance3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	global_position = Game.get_camera().getMousePosition()
+	pass
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlj6r"]
+shading_mode = 0
+albedo_color = Color(0.262745, 0.631373, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_46hpj"]
+material = SubResource("StandardMaterial3D_qlj6r")
+
+[node name="Camera" type="Camera3D"]
+projection = 1
+script = ExtResource("1_u5qjr")
+
+[node name="mouse" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.38419e-07, 4.23399, -0.0961151)
+mesh = SubResource("SphereMesh_ysnxg")
+surface_material_override/0 = SubResource("StandardMaterial3D_p72u3")
+script = SubResource("GDScript_y3wc8")
+
+[node name="Fairy" parent="mouse" instance=ExtResource("2_q8mke")]
+
+[node name="centerArea" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.38419e-07, 4.23399, -0.0961151)
+mesh = SubResource("SphereMesh_46hpj")
+
+[node name="PlayerCenterDist" type="Label" parent="."]
+visible = false
+offset_left = 66.0
+offset_top = 59.0
+offset_right = 106.0
+offset_bottom = 82.0
+text = "Player - CameraCenter Distance"
+
+[node name="Value" type="Label" parent="PlayerCenterDist"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 27.0
+offset_right = 244.0
+offset_bottom = 50.0
+text = "value"

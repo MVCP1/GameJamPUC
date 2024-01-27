@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://nlidij6kaaek"]
+
+[ext_resource type="Script" path="res://entity/player.gd" id="1_2y2i6"]
+[ext_resource type="ArrayMesh" uid="uid://fmei57yf86n1" path="res://asset/Mini Dungeon/character-human.obj" id="1_advhw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y6jse"]
+radius = 0.25
+height = 0.8
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_2y2i6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("CapsuleShape3D_y6jse")
+
+[node name="Character-human" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_advhw")

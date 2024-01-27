@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgb8wm355cjua"]
+
+[sub_resource type="BoxShape3D" id="1"]
+
+[node name="caixa" type="CSGBox3D"]
+
+[node name="KinematicBody" type="CharacterBody3D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="KinematicBody"]
+shape = SubResource("1")

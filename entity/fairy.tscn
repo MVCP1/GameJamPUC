@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://8nsp36ic37w6"]
+
+[ext_resource type="Script" path="res://entity/fairy.gd" id="1_2ouis"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hjao7"]
+albedo_color = Color(1, 0, 0.133333, 1)
+emission_enabled = true
+emission = Color(1, 1, 0.12549, 1)
+emission_energy_multiplier = 4.29
+
+[sub_resource type="SphereMesh" id="SphereMesh_74yjs"]
+material = SubResource("StandardMaterial3D_hjao7")
+
+[node name="Fairy" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.71111, 0)
+mesh = SubResource("SphereMesh_74yjs")
+skeleton = NodePath("../..")
+script = ExtResource("1_2ouis")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 4.243
