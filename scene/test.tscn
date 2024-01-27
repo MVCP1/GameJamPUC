@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxhb0wx45owjr"]
+[gd_scene load_steps=15 format=3 uid="uid://cxhb0wx45owjr"]
 
 [ext_resource type="PackedScene" uid="uid://nlidij6kaaek" path="res://entity/player.tscn" id="2_nf5h7"]
 [ext_resource type="PackedScene" uid="uid://bfstt1cttjn45" path="res://map/movable_box.tscn" id="2_oqqrs"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://map/platform.gd" id="5_hbru6"]
 [ext_resource type="PackedScene" uid="uid://dcqjhr5kfbj21" path="res://item/charge.tscn" id="8_ss5e1"]
 [ext_resource type="PackedScene" uid="uid://b5seaexu7yy8n" path="res://item/crystal.tscn" id="9_lxx5w"]
+[ext_resource type="PackedScene" uid="uid://ctrw2n1rt0tfg" path="res://item/button.tscn" id="10_t4nuu"]
+[ext_resource type="PackedScene" uid="uid://bm2g6fh53wi8" path="res://map/elevate.tscn" id="11_uqn5m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_54svo"]
 
@@ -86,6 +88,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90541, 1.12298, 0.0222561)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.731026, 0.576642, 0.364808, -0.649882, 0.425427, 0.629814, 0.207978, -0.697493, 0.685747, -6.79944, 3.64611, -4.76837e-07)
+visible = false
+light_energy = 0.1
 light_angular_distance = 46.21
 light_negative = true
 
@@ -134,5 +138,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.13127, 0.5, -5.48824)
 
 [node name="Charge3" parent="." instance=ExtResource("9_lxx5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.96067, 4.47088, -7.9634)
+
+[node name="Button" parent="." instance=ExtResource("10_t4nuu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -2)
+
+[node name="elevate" parent="." node_paths=PackedStringArray("activators") instance=ExtResource("11_uqn5m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.48809, 0.5, -4.84468)
+activators = [NodePath("../Button")]
 
 [editable path="platform"]
