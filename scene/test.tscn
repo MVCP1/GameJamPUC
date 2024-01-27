@@ -18,6 +18,10 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 agent_height = 0.34
 agent_radius = 0.92
 
+[ext_resource type="PackedScene" uid="uid://ctrw2n1rt0tfg" path="res://item/button.tscn" id="10_t4nuu"]
+[ext_resource type="PackedScene" uid="uid://bm2g6fh53wi8" path="res://map/elevate.tscn" id="11_uqn5m"]
+
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_54svo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfs5l"]
@@ -97,8 +101,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99022, 1.97088, -5.00434)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90541, 1.12298, 0.0222561)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
 transform = Transform3D(0.731026, 0.576642, 0.364808, -0.649882, 0.425427, 0.629814, 0.207978, -0.697493, 0.685747, -6.92634, 3.66697, -1.4051)
 visible = false
+
+transform = Transform3D(0.731026, 0.576642, 0.364808, -0.649882, 0.425427, 0.629814, 0.207978, -0.697493, 0.685747, -6.79944, 3.64611, -4.76837e-07)
+visible = false
+light_energy = 0.1
 light_angular_distance = 46.21
 
 [node name="Player" parent="." instance=ExtResource("2_nf5h7")]
@@ -150,7 +159,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.13127, 0.5, -5.48824)
 [node name="Crystal2" parent="Charges" instance=ExtResource("9_lxx5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.96067, 4.47088, -7.9634)
 
+
 [node name="Mob" parent="." instance=ExtResource("10_a004i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33585, 0.70593, -0.861059)
+
+[node name="Button" parent="." instance=ExtResource("10_t4nuu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -2)
+
+[node name="elevate" parent="." node_paths=PackedStringArray("activators") instance=ExtResource("11_uqn5m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.48809, 0.5, -4.84468)
+activators = [NodePath("../Button")]
 
 [editable path="platform"]

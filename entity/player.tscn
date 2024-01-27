@@ -54,7 +54,7 @@ albedo_texture = ExtResource("3_m0hiq")
 [sub_resource type="SphereShape3D" id="SphereShape3D_i6nhx"]
 radius = 1.0
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["can_press"]]
 script = ExtResource("1_2y2i6")
 acceleration = 10.0
 jump_initial_impulse = 5.5

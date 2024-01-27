@@ -31,6 +31,9 @@ _surfaces = [{
 transparency = 1
 shading_mode = 0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_tsnph"]
+size = Vector3(0.871338, 0.456177, 0.767578)
+
 [node name="Crystal" type="Node3D"]
 script = ExtResource("1_j7q1w")
 
@@ -56,6 +59,12 @@ layers = 524289
 light_color = Color(1, 0.196078, 1, 1)
 light_energy = 0.5
 light_indirect_energy = 6.638
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00524902, 0.271912, 0.000976563)
+shape = SubResource("BoxShape3D_tsnph")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
