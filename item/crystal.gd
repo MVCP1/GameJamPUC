@@ -7,7 +7,7 @@ const min_light = 0.5
 const energy_step = 0.01
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if active:
 		$Area3D/MeshInstance3D.get_surface_override_material(0).emission_energy_multiplier = 6
 		add_charge(6)

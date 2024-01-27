@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dmhv6qih4l4pb"]
+
+[ext_resource type="Texture2D" uid="uid://cvyn2h0kfv3l5" path="res://asset/Prototype Textures/Orange/texture_05.png" id="1_i04lr"]
+
+[resource]
+albedo_texture = ExtResource("1_i04lr")
+metallic_specular = 1.0
+roughness = 0.25
+ao_enabled = true
+uv1_triplanar = true
+uv1_world_triplanar = true

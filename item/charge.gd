@@ -8,7 +8,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	#active = global_position.distance_to(Game.get_fairy()) <= fairy_distance:
 	if active:
 		$Area3D/MeshInstance3D.get_surface_override_material(0).emission_energy_multiplier = 5

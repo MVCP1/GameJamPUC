@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://bb2sap67bu1sb"]
+
+[ext_resource type="ArrayMesh" uid="uid://ccatadt8fh1kx" path="res://asset/Mini Dungeon/character-orc.obj" id="1_cvxsm"]
+[ext_resource type="Script" path="res://entity/mob.gd" id="1_vofqv"]
+[ext_resource type="PackedScene" uid="uid://y2eiqhi3ylv5" path="res://addons/light_sensor_3d/light_sensor_scene.tscn" id="2_j1h35"]
+[ext_resource type="Script" path="res://addons/light_sensor_3d/light_sensor_3d.gd" id="3_a461x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfueb"]
+shading_mode = 0
+albedo_color = Color(0.709804, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_gco2v"]
+radius = 0.03
+height = 0.065
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kmhpj"]
+radius = 0.34
+height = 0.92
+
+[node name="Mob" type="CharacterBody3D" groups=["enemy"]]
+script = ExtResource("1_vofqv")
+light_detection_threshold = 0.5
+
+[node name="LightSensorScene" parent="." instance=ExtResource("2_j1h35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0469715, 0.254134, 0)
+script = ExtResource("3_a461x")
+layer = 524288
+
+[node name="Body" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00945771, -0.0823117, -0.000596404)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body"]
+mesh = ExtResource("1_cvxsm")
+
+[node name="LeftEye" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0748532, 0.478239, 0.153933)
+material_override = SubResource("StandardMaterial3D_vfueb")
+mesh = SubResource("SphereMesh_gco2v")
+
+[node name="RightEye" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0726648, 0.478239, 0.153933)
+material_override = SubResource("StandardMaterial3D_vfueb")
+mesh = SubResource("SphereMesh_gco2v")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.992888, 0, 0, 0, 0.992888, 0, 0, 0, 0.992888, 0.00408673, 0.353745, 0.003407)
+shape = SubResource("CapsuleShape3D_kmhpj")
+
+[node name="StunTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
