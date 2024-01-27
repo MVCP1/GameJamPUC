@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var acceleration := 3.0
 @export var rotation_speed := 9.0
 @export var stopping_speed := 2.0
+@export var moving_objects_speed_modifier: float = 0.7
 @export_category("Air movement")
 @export var jump_initial_impulse := 12.0
 
@@ -48,8 +49,10 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if is_trying_to_grab:
-		_is_grabbing = _grab_and_move(Vector3(velocity.x, 0, velocity.z))
-	
+		_is_grabbing = _grab_and_move(Vector3(velocity.x, 0, velocity.z) * moving_objects_speed_modifier)
+
+	if _is_grabbing:
+		velocity = velocity * moving_objects_speed_modifier
 	move_and_slide()
 
 
