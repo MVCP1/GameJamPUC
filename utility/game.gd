@@ -1,12 +1,11 @@
 extends Node
 
 var current_level = 1
-#const levels = [
-	#
-#]
 
 func next_level():
 	current_level += 1
+	if current_level == 4:
+		get_tree().change_scene_to_file("res://UI/Scenes/menu.tscn")
 	get_tree().change_scene_to_file("res://scene/level"+str(current_level)+".tscn")
 
 	
