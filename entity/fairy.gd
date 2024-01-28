@@ -15,9 +15,15 @@ extends CharacterBody3D
 @export var min_light: float = 0.5
 @export var energy_expense_modifier: float = 1.5
 
+@export_category("Fairy Luminescense")
+@export var control_flight: bool = true
+@export var max_y_offset: float = 20
+@export var min_y_offset: float = 1
+@export var y_offset_step: float = 0.5
+var y_offset: float = min_y_offset
+
 @onready var _can_move = true
 @onready var _is_charging = false
-@onready var max_y_offset: float = 1
 
 var direction = Vector3(0,0,0)
 var distance
@@ -51,6 +57,11 @@ func _process(_delta):
 	if Input.is_action_just_released('r_click'):
 		pulse()
 
+	if Input.is_action_pressed('fairy_down'):
+		y_offset = clamp(y_offset-y_offset_step, min_y_offset, max_y_offset)
+	if Input.is_action_pressed('fairy_up'):
+		y_offset = clamp(y_offset+y_offset_step, min_y_offset, max_y_offset)
+
 	var energy_percent = ($Energy.value/$Energy.max_value)
 	$MeshInstance3D.scale = Vector3(1,1,1)*clamp(max_size*energy_percent, min_size, max_size)
 		
@@ -68,7 +79,7 @@ func _process(_delta):
 		move(energy_percent)
 
 func move(energy_percent: float) -> void:
-	var target = (move_target.global_position if move_target else Game.get_mouse()) + Vector3(0,clamp(max_y_offset * energy_percent, 0, max_y_offset),0)
+	var target = (move_target.global_position if move_target else Game.get_mouse()) + Vector3(0,clamp(y_offset * energy_percent, min_y_offset, max_y_offset),0)
 	distance = global_position.distance_to(target)
 	if(distance > distance_min):
 		direction += (target - global_position).normalized()*2

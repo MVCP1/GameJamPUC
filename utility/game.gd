@@ -13,5 +13,8 @@ func get_mouse():
 	return get_camera().getMousePosition()
 	
 func get_fairy():
-	return get_world().get_node('Fairy')
+	if get_world().get_node('Fairy'):
+		return get_world().get_node('Fairy')
+	else:
+		return get_player()
 
