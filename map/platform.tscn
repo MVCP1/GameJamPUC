@@ -1,14 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckl7l6l84vgwb"]
+[gd_scene load_steps=10 format=3 uid="uid://ckl7l6l84vgwb"]
 
 [ext_resource type="Script" path="res://map/platform.gd" id="1_onxfn"]
 [ext_resource type="Script" path="res://map/platform_outline.gd" id="2_um3u0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_54svo"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfs5l"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_6nq4a"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_turni"]
 _surfaces = [{
@@ -27,6 +22,16 @@ _surfaces = [{
 transparency = 1
 shading_mode = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfs5l"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6nq4a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y3tv1"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wwapg"]
+
 [node name="Plataform" type="Node3D"]
 script = ExtResource("1_onxfn")
 
@@ -40,14 +45,20 @@ script = ExtResource("2_um3u0")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="box"]
 shape = SubResource("BoxShape3D_54svo")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="box/CollisionShape3D"]
-material_override = SubResource("StandardMaterial3D_rfs5l")
-mesh = SubResource("BoxMesh_6nq4a")
-
-[node name="Outline" type="MeshInstance3D" parent="box/CollisionShape3D/MeshInstance3D"]
+[node name="Outline" type="MeshInstance3D" parent="box/CollisionShape3D"]
 visible = false
 mesh = SubResource("ArrayMesh_turni")
+skeleton = NodePath("../On")
 surface_material_override/0 = SubResource("StandardMaterial3D_kvaq3")
+
+[node name="Off" type="MeshInstance3D" parent="box/CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_rfs5l")
+mesh = SubResource("BoxMesh_6nq4a")
+skeleton = NodePath("../On")
+
+[node name="On" type="MeshInstance3D" parent="box/CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_y3tv1")
+mesh = SubResource("BoxMesh_wwapg")
 
 [node name="End" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.45823)

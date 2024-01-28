@@ -1,5 +1,14 @@
 extends Node
 
+var current_level = 1
+#const levels = [
+	#
+#]
+
+func next_level():
+	current_level += 1
+	get_tree().change_scene("res://scene/level"+str(current_level)+".tscn")
+	
 func die():
 	get_tree().reload_current_scene()
 

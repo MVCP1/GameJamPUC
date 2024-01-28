@@ -28,12 +28,15 @@ func _process(_delta):
 			active = not likes_fairy
 		else:
 			active = likes_fairy
+			
 	if active or always_active:
+		$box/CollisionShape3D/On.visible = true
+		$box/CollisionShape3D/Off.visible = false
 		tween.play()
-		$box/CollisionShape3D/MeshInstance3D.material_override.albedo_color = Color(0,1,0)
 	else:
+		$box/CollisionShape3D/On.visible = false
+		$box/CollisionShape3D/Off.visible = true
 		tween.pause()
-		$box/CollisionShape3D/MeshInstance3D.material_override.albedo_color = Color(1,0,0)
 	pass
 
 func move():
