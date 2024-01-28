@@ -83,6 +83,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="Energy" type="ProgressBar" parent="."]
+visible = false
 modulate = Color(1, 1, 0, 1)
 offset_left = 40.0
 offset_top = 35.0
@@ -91,6 +92,7 @@ offset_bottom = 62.0
 value = 20.0
 
 [node name="Pulse" type="ProgressBar" parent="."]
+visible = false
 modulate = Color(1, 0, 0.196078, 1)
 offset_left = 40.0
 offset_top = 75.0
