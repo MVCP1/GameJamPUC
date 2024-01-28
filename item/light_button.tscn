@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dpxcujn61ww5i"]
 
 [ext_resource type="Script" path="res://item/light_button.gd" id="1_nqcsf"]
-[ext_resource type="ArrayMesh" uid="uid://b2pnlic8l78rl" path="res://asset/Mini Dungeon/coin.obj" id="2_spg3s"]
+[ext_resource type="ArrayMesh" uid="uid://b2pnlic8l78rl" path="res://assets/Mini Dungeon/coin.obj" id="2_spg3s"]
 
 [sub_resource type="GDScript" id="GDScript_llc52"]
 script/source = "extends Area3D

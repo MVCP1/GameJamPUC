@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://hjm0k2yk265h"]
+[gd_scene load_steps=9 format=3 uid="uid://hjm0k2yk265h"]
 
 [ext_resource type="PackedScene" uid="uid://crdp5f1iar5n5" path="res://map/tile_box.tscn" id="1_gwj1q"]
 [ext_resource type="PackedScene" uid="uid://bfstt1cttjn45" path="res://map/movable_box.tscn" id="2_04a6s"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://8nsp36ic37w6" path="res://entity/fairy.tscn" id="5_oadee"]
 [ext_resource type="PackedScene" uid="uid://ctrw2n1rt0tfg" path="res://item/button.tscn" id="6_4g0lh"]
 [ext_resource type="PackedScene" uid="uid://bm2g6fh53wi8" path="res://map/elevate.tscn" id="7_wy3ph"]
+[ext_resource type="MeshLibrary" uid="uid://n55ok4r7qx1s" path="res://map/mesh_lib.tres" id="8_vog7v"]
 
 [node name="Main" type="Node3D"]
 
@@ -54,9 +55,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11979, 3.67216, -11.4467)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163757, 3.20486, -14.625)
 activators = [NodePath("../Button")]
 
-[node name="CollisionShape3D" parent="Right/elevate" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
-
 [node name="End" parent="Right/elevate" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.455249, 0)
 
@@ -78,5 +76,9 @@ size = 9.745
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2684, 0.5, 2.36629)
 
 [node name="Left" type="Node3D" parent="."]
+
+[node name="GridMap" type="GridMap" parent="Left"]
+mesh_library = ExtResource("8_vog7v")
+metadata/_editor_floor_ = Vector3(0, -1, 0)
 
 [editable path="Right/elevate"]
