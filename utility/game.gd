@@ -1,13 +1,18 @@
 extends Node
 
-var current_level = 1
+var current_level = 0
+var volume = 0.0
 #const levels = [
 	#
 #]
 
+func _process(_delta):
+	if Input.is_action_pressed("esc"):
+		get_tree().quit()
+
 func next_level():
 	current_level += 1
-	get_tree().change_scene("res://scene/level"+str(current_level)+".tscn")
+	get_tree().change_scene_to_file("res://scene/level"+str(current_level)+".tscn")
 	
 func die():
 	get_tree().reload_current_scene()
