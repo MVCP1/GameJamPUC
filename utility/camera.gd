@@ -28,7 +28,7 @@ func _process(delta):
 	setCameraPosition()
 	$centerArea.global_position = centerAreaPosition
 	$PlayerCenterDist/Value.text = str(Game.get_player().position.distance_to(centerAreaPosition))
-	if Input.is_action_just_pressed('click'):
+	if Input.is_action_just_pressed('l_click'):
 		shakeScreen(shakeTypeList.SHOOTS)
 	if shake > 0:
 		handleShake(delta)

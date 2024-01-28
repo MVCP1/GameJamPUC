@@ -60,6 +60,7 @@ radius = 0.2
 
 [node name="Fairy" type="CharacterBody3D" groups=["fairy"]]
 script = ExtResource("1_2ouis")
+toggle_outline_radius = 1.5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
