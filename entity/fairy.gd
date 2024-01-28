@@ -25,8 +25,8 @@ var distance
 var move_target = null
 
 const pulse_light_multiplier = 2
-var charging_pulse = false
 const min_pulse_charge = 50
+var charging_pulse = false
 var can_update_light = true
 
 func _ready():
@@ -35,17 +35,20 @@ func _ready():
 	$ToggleOutlineArea/CollisionShape3D.shape.radius = toggle_outline_radius
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Input.is_action_just_released('l_click') and not _is_charging:
-		#_can_move = not _can_move
-		if(move_target):
+		if move_target:
 			move_target = null
 		else:
 			for area in $ToggleOutlineArea.get_overlapping_bodies()+ $ToggleOutlineArea.get_overlapping_areas():
-				if(not move_target):
+				if not move_target:
 					if area.is_in_group("has_outline"):
+						if area.is_in_group("charge_station"):
+							max_y_offset = 0.2
+							_is_charging = true
 						move_target = area
+			if move_target == null:
+				_can_move = not _can_move
 	if Input.is_action_pressed('r_click'):
 		charging_pulse = true
 	if Input.is_action_just_released('r_click'):
@@ -54,8 +57,8 @@ func _process(_delta):
 	var energy_percent = ($Energy.value/$Energy.max_value)
 	$MeshInstance3D.scale = Vector3(1,1,1)*clamp(max_size*energy_percent, min_size, max_size)
 		
-	if(can_update_light):
-		if(charging_pulse):
+	if can_update_light:
+		if charging_pulse:
 			var pulse_percent = 1 - $Pulse.value/$Pulse.max_value
 			$MeshInstance3D/OmniLight3D.light_color = Color(1, pulse_percent, pulse_percent)
 			$Pulse.value += $Pulse.step
@@ -137,17 +140,9 @@ func _on_toggle_outline_area_area_exited(area):
 		area.hide_outline()
 
 
-func _on_charge_area_area_entered(area):
-	if area.is_in_group("charge_station"):
-		max_y_offset = 0.2
-		for _i in range(10):
-			move(1)
-		_is_charging = true
-		_can_move = false
-
-
 func liberate() -> void:
 	if _is_charging:
 		_is_charging = false
 		_can_move = true
 		max_y_offset = 1
+		move_target = null
