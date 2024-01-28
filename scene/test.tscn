@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cxhb0wx45owjr"]
+[gd_scene load_steps=21 format=3 uid="uid://cxhb0wx45owjr"]
 
 [ext_resource type="PackedScene" uid="uid://crdp5f1iar5n5" path="res://map/tile_box.tscn" id="1_fcksi"]
 [ext_resource type="PackedScene" uid="uid://nlidij6kaaek" path="res://entity/player.tscn" id="2_nf5h7"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bb2sap67bu1sb" path="res://entity/mob.tscn" id="10_a004i"]
 [ext_resource type="PackedScene" uid="uid://ctrw2n1rt0tfg" path="res://item/button.tscn" id="10_t4nuu"]
 [ext_resource type="PackedScene" uid="uid://bm2g6fh53wi8" path="res://map/elevate.tscn" id="11_uqn5m"]
+[ext_resource type="PackedScene" uid="uid://dpxcujn61ww5i" path="res://item/light_button.tscn" id="15_fjtt1"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_feplc"]
 vertices = PackedVector3Array(-8.26705, 0.976625, -10.0768, -8.26705, 0.976625, 10.1732, 8.23295, 0.976625, 10.1732, 8.23295, 0.976625, -10.0768)
@@ -138,8 +139,9 @@ cull_mask = 524287
 current = true
 size = 9.745
 
-[node name="platform" parent="." instance=ExtResource("4_4ia5w")]
+[node name="platform" parent="." node_paths=PackedStringArray("activators") instance=ExtResource("4_4ia5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4, -8)
+activators = [NodePath("../LightButton")]
 
 [node name="End" parent="platform" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0.00787926)
@@ -172,9 +174,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -1)
 [node name="Crystal" parent="Charges" instance=ExtResource("9_lxx5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.13127, 0.5, -5.48824)
 
-[node name="Crystal2" parent="Charges" instance=ExtResource("9_lxx5w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.96067, 4.47088, -7.9634)
-
 [node name="Mob" parent="." instance=ExtResource("10_a004i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33585, 0.70593, -0.861059)
 
@@ -193,5 +192,8 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 3.68456, 0, 0, 0, 3.53525, 0, 0, 0)
 shape = SubResource("BoxShape3D_3suwg")
+
+[node name="LightButton" parent="." instance=ExtResource("15_fjtt1")]
+transform = Transform3D(0.302836, 0, 0.953043, 0, 1, 0, -0.953043, 0, 0.302836, -6.69549, 4.84923, -7.86869)
 
 [editable path="platform"]
