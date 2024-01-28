@@ -13,6 +13,7 @@ func _process(_delta):
 func next_level():
 	current_level += 1
 	get_tree().change_scene_to_file("res://scene/level"+str(current_level)+".tscn")
+
 	
 func die():
 	get_tree().reload_current_scene()

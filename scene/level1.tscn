@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://hjm0k2yk265h"]
+[gd_scene load_steps=17 format=3 uid="uid://hjm0k2yk265h"]
 
 [ext_resource type="MeshLibrary" uid="uid://n55ok4r7qx1s" path="res://map/mesh_lib.tres" id="1_aqgap"]
 [ext_resource type="PackedScene" uid="uid://bfstt1cttjn45" path="res://map/movable_box.tscn" id="2_04a6s"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://ctrw2n1rt0tfg" path="res://item/button.tscn" id="6_4g0lh"]
 [ext_resource type="PackedScene" uid="uid://bm2g6fh53wi8" path="res://map/elevate.tscn" id="7_wy3ph"]
 [ext_resource type="PackedScene" uid="uid://dlmbyhsrt05y1" path="res://utility/die.tscn" id="8_twxmj"]
+[ext_resource type="PackedScene" uid="uid://calb6hih46ttq" path="res://map/door.tscn" id="10_acsa5"]
+[ext_resource type="PackedScene" uid="uid://dpxcujn61ww5i" path="res://item/light_button.tscn" id="11_kh8kw"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vnaby"]
 points = PackedVector3Array(0.25, 0.5, 0.25, 0.25, -8.72298e-32, 0.25, 0.25, 0.5, -0.25, -0.25, 0.5, 0.25, 0.25, -8.72298e-32, -0.25, -0.25, -8.72298e-32, 0.25, -0.25, 0.5, -0.25, -0.25, -8.72298e-32, -0.25)
@@ -81,6 +83,8 @@ shadow_mesh = SubResource("ArrayMesh_36vu6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.951852, 0.306559, 0, -0.306559, 0.951852, 0, 10.3703, 0)
+light_cull_mask = 4294443007
+shadow_bias = 0.0
 
 [node name="Floor" type="Node3D" parent="."]
 
@@ -135,7 +139,7 @@ current = true
 size = 9.745
 
 [node name="Player" parent="." instance=ExtResource("3_osvh4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70772, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.541023, 0.991241, 0.181647)
 
 [node name="Fairy" parent="." instance=ExtResource("5_oadee")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.524823, 5.30227, -21.396)
@@ -143,5 +147,15 @@ energy_expense_modifier = 0.0
 
 [node name="die" parent="." instance=ExtResource("8_twxmj")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -13.6965, 0)
+
+[node name="door" parent="." node_paths=PackedStringArray("activators") instance=ExtResource("10_acsa5")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.64779, 4.24156, -24.8665)
+activators = [NodePath("../Button2"), NodePath("../LightButton")]
+
+[node name="Button2" parent="." instance=ExtResource("6_4g0lh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25318, 4.70613, -22.9435)
+
+[node name="LightButton" parent="." instance=ExtResource("11_kh8kw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.01751, 3.6673, -23.3636)
 
 [editable path="elevate"]
