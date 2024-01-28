@@ -1,0 +1,54 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bedtonoj44xhe"]
+
+[ext_resource type="Texture2D" uid="uid://bbdpno8vrv2rc" path="res://UI/Assets/PNG/Double/Border/panel-border-000.png" id="1_7q81t"]
+[ext_resource type="Texture2D" uid="uid://c1e6wo2vm7txv" path="res://UI/Assets/PNG/Double/Border/panel-border-001.png" id="2_jhqh6"]
+[ext_resource type="Texture2D" uid="uid://1qpnbtxfkrjb" path="res://UI/Assets/PNG/Double/Border/panel-border-002.png" id="3_dg5wb"]
+[ext_resource type="Texture2D" uid="uid://d3bg4y46jmp6o" path="res://UI/Assets/PNG/Default/Divider Fade/divider-fade-003.png" id="4_pwgfi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5dw7h"]
+texture = ExtResource("1_7q81t")
+texture_margin_left = 30.0
+texture_margin_top = 30.0
+texture_margin_right = 30.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rfhsj"]
+texture = ExtResource("2_jhqh6")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mu4go"]
+texture = ExtResource("2_jhqh6")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qqi1"]
+texture = ExtResource("1_7q81t")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6daxi"]
+texture = ExtResource("3_dg5wb")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2k5c3"]
+texture = ExtResource("4_pwgfi")
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_5dw7h")
+Button/styles/focus = SubResource("StyleBoxTexture_rfhsj")
+Button/styles/hover = SubResource("StyleBoxTexture_mu4go")
+Button/styles/normal = SubResource("StyleBoxTexture_6qqi1")
+Button/styles/pressed = SubResource("StyleBoxTexture_6daxi")
+CustomLabelTitle/base_type = &"Label"
+CustomLabelTitle/styles/normal = SubResource("StyleBoxTexture_2k5c3")
+Label/fonts/font = null

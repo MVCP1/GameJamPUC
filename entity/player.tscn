@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://nlidij6kaaek"]
+[gd_scene load_steps=12 format=3 uid="uid://nlidij6kaaek"]
 
 [ext_resource type="Script" path="res://entity/player.gd" id="1_2y2i6"]
 [ext_resource type="ArrayMesh" uid="uid://fmei57yf86n1" path="res://assets/Mini Dungeon/character-human.obj" id="2_rei6n"]
 [ext_resource type="Texture2D" uid="uid://bxd24qoo0ftgn" path="res://assets/Mini Dungeon/Textures/colormap.png" id="3_2i16e"]
+[ext_resource type="AudioStream" uid="uid://cjy7y512b55ja" path="res://UI/Sound/ost_719268__universfield__starlight-harmonies.mp3" id="4_dyutq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xgqgo"]
 
@@ -30,6 +31,21 @@ radius = 0.775
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vhwhq"]
 size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="GDScript" id="GDScript_3jmt8"]
+script/source = "extends AudioStreamPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	volume_db = linear_to_db(Game.volume)
+	pass
+"
 
 [node name="Player" type="CharacterBody3D" groups=["can_press"]]
 collision_layer = 4
@@ -73,3 +89,9 @@ collision_mask = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SaveFairyArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02004, 0.696493, -0.259986)
 shape = SubResource("BoxShape3D_vhwhq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_dyutq")
+autoplay = true
+bus = &"Musica"
+script = SubResource("GDScript_3jmt8")
