@@ -8,7 +8,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var is_pressed = false
 	for body in $Area3D.get_overlapping_bodies():
 		is_pressed = is_pressed or body.is_in_group('can_press')
