@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bb2sap67bu1sb"]
 
-[ext_resource type="ArrayMesh" uid="uid://ccatadt8fh1kx" path="res://asset/Mini Dungeon/character-orc.obj" id="1_cvxsm"]
 [ext_resource type="Script" path="res://entity/mob.gd" id="1_vofqv"]
 [ext_resource type="PackedScene" uid="uid://y2eiqhi3ylv5" path="res://addons/light_sensor_3d/light_sensor_scene.tscn" id="2_j1h35"]
 [ext_resource type="Script" path="res://addons/light_sensor_3d/light_sensor_3d.gd" id="3_a461x"]
+[ext_resource type="ArrayMesh" uid="uid://ccatadt8fh1kx" path="res://assets/Mini Dungeon/character-orc.obj" id="4_i47x6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfueb"]
 shading_mode = 0
@@ -32,7 +32,7 @@ layer = 524288
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00945771, -0.0823117, -0.000596404)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Body"]
-mesh = ExtResource("1_cvxsm")
+mesh = ExtResource("4_i47x6")
 
 [node name="LeftEye" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0748532, 0.478239, 0.153933)
