@@ -49,8 +49,8 @@ transparency = 4
 vertex_color_is_srgb = true
 albedo_texture = ExtResource("3_m0hiq")
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_i6nhx"]
-radius = 1.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycaor"]
+size = Vector3(1.83105, 2.18994, 0.680664)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vhwhq"]
 size = Vector3(1.5, 1.5, 1.5)
@@ -86,8 +86,8 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.220946, 0.839804, -0.181539)
-shape = SubResource("SphereShape3D_i6nhx")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.191161, 0.244833, -0.021871)
+shape = SubResource("BoxShape3D_ycaor")
 
 [node name="SaveFairyArea" type="Area3D" parent="."]
 collision_layer = 4

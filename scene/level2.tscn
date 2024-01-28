@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://hb2afbrg3jaa"]
+
+[ext_resource type="PackedScene" uid="uid://crdp5f1iar5n5" path="res://map/tile_box.tscn" id="1_37djo"]
+[ext_resource type="PackedScene" uid="uid://nlidij6kaaek" path="res://entity/player.tscn" id="3_wvscg"]
+[ext_resource type="PackedScene" uid="uid://caswk7rd54bhd" path="res://utility/camera.tscn" id="4_p4q4c"]
+[ext_resource type="PackedScene" uid="uid://b5seaexu7yy8n" path="res://item/crystal.tscn" id="5_lh2a1"]
+[ext_resource type="PackedScene" uid="uid://8nsp36ic37w6" path="res://entity/fairy.tscn" id="5_spcx5"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Floor" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" parent="Floor" instance=ExtResource("1_37djo")]
+transform = Transform3D(21.8931, 0, 0, 0, 0.989402, 0, 0, 0, 48.9215, 0, 0, -19.3901)
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" parent="Floor" instance=ExtResource("1_37djo")]
+transform = Transform3D(1.79974, 0, 0, 0, 1, 0, 0, 0, 21.5997, -4.1455, 0.889788, -5.82029)
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" parent="Floor" instance=ExtResource("1_37djo")]
+transform = Transform3D(11.8046, 0, 0, 0, 1, 0, 0, 0, 15.029, 5.5821, 0.889788, -2.5259)
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" parent="Floor" instance=ExtResource("1_37djo")]
+transform = Transform3D(-2.48119e-07, 0, 10.4588, 0, 1, 0, -5.67629, 0, -4.57169e-07, 1.97932, 0.903282, -16.8016)
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" parent="Floor" instance=ExtResource("1_37djo")]
+transform = Transform3D(1.79974, 0, 0, 0, 1, 0, 0, 0, 21.5997, 10.6201, 0.889787, -20.6591)
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" parent="Floor" instance=ExtResource("1_37djo")]
+transform = Transform3D(11.8046, 0, 0, 0, 1, 0, 0, 0, 10.3158, 7.00383, 0.889788, -28.8833)
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" parent="Floor" instance=ExtResource("1_37djo")]
+transform = Transform3D(11.8046, 0, 0, 0, 1, 0, 0, 0, 15.029, -8.9674, 0.889789, -26.2722)
+skeleton = NodePath("../..")
+
+[node name="Player" parent="." instance=ExtResource("3_wvscg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00245, 0.5, 2.91155)
+jump_initial_impulse = 4.5
+
+[node name="Camera" parent="." instance=ExtResource("4_p4q4c")]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 5, 7.071, 5)
+cull_mask = 524287
+current = true
+size = 9.745
+
+[node name="Fairy" parent="." instance=ExtResource("5_spcx5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.749038, 2.06265, 2.36629)
+
+[node name="Crystal" parent="." instance=ExtResource("5_lh2a1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76934, 0.494701, -2.60321)
+
+[node name="Crystal2" parent="." instance=ExtResource("5_lh2a1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30345, 0.494701, -11.9129)
+
+[node name="Crystal3" parent="." instance=ExtResource("5_lh2a1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93438, 0.494701, -13.6388)
+
+[node name="Crystal4" parent="." instance=ExtResource("5_lh2a1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.26436, 0.494701, -22.4818)
+
+[node name="Crystal5" parent="." instance=ExtResource("5_lh2a1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00623, 0.494701, -23.6186)

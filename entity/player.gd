@@ -50,9 +50,11 @@ func _physics_process(delta: float) -> void:
 		velocity.y /= 2
 	
 	if is_trying_to_interact:
-		_try_to_interact(Vector3(velocity.x, 0, velocity.z) * moving_objects_speed_modifier)
+		_try_to_interact()
+	_try_to_push(Vector3(velocity.x, 0, velocity.z) * moving_objects_speed_modifier)
 
 	if _is_grabbing:
+		
 		velocity = velocity * moving_objects_speed_modifier
 	move_and_slide()
 
@@ -77,19 +79,23 @@ func _orient_to_direction(direction: Vector3, delta: float) -> void:
 	transform.basis = Basis(transform.basis.get_rotation_quaternion().slerp(rotation_basis, delta * rotation_speed))
 
 
-func _try_to_interact(vel_move: Vector3) -> void:
+func _try_to_interact() -> void:
 	# try freeing fairy
 	if _save_fairy_area.has_overlapping_bodies():
 		_save_fairy_area.get_overlapping_bodies()[0].liberate()
 	
+	
+
+func _try_to_push(vel_move: Vector3) -> void:
+	if not is_on_floor():
+		return
 	if not _interact_detector.has_overlapping_bodies():
 		return
-	
 	var bodies: Array[Node3D] = _interact_detector.get_overlapping_bodies()
-	
 	# try grabbing
 	for body in bodies:
 		if body.is_in_group("movable"):
-			body.velocity = vel_move
-			body.move_and_slide()
-			_is_grabbing = true
+			if(vel_move.dot(body.global_position - global_position) > 0):
+				body.velocity = vel_move
+				body.move_and_slide()
+				_is_grabbing = true

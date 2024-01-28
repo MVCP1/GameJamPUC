@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://hjm0k2yk265h"]
+
+[ext_resource type="PackedScene" uid="uid://crdp5f1iar5n5" path="res://map/tile_box.tscn" id="1_gwj1q"]
+[ext_resource type="PackedScene" uid="uid://bfstt1cttjn45" path="res://map/movable_box.tscn" id="2_04a6s"]
+[ext_resource type="PackedScene" uid="uid://nlidij6kaaek" path="res://entity/player.tscn" id="3_osvh4"]
+[ext_resource type="PackedScene" uid="uid://caswk7rd54bhd" path="res://utility/camera.tscn" id="4_3g46g"]
+[ext_resource type="PackedScene" uid="uid://8nsp36ic37w6" path="res://entity/fairy.tscn" id="5_oadee"]
+[ext_resource type="PackedScene" uid="uid://ctrw2n1rt0tfg" path="res://item/button.tscn" id="6_4g0lh"]
+[ext_resource type="PackedScene" uid="uid://bm2g6fh53wi8" path="res://map/elevate.tscn" id="7_wy3ph"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Floor" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" parent="Floor" instance=ExtResource("1_gwj1q")]
+transform = Transform3D(9.57355, 0, 0, 0, 1, 0, 0, 0, 10.6239, 0, 0, 0)
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" parent="Floor" instance=ExtResource("1_gwj1q")]
+transform = Transform3D(9.57355, 0, 0, 0, 1, 0, 0, 0, 5.01693, 0, 0.889787, -7.81309)
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" parent="Floor" instance=ExtResource("1_gwj1q")]
+transform = Transform3D(9.57355, 0, 0, 0, 1.90592, 0, 0, 0, 5.01693, 0, 2.2519, -12.6376)
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" parent="Floor" instance=ExtResource("1_gwj1q")]
+transform = Transform3D(9.57355, 0, 0, 0, 1.90592, 0, 0, 0, 5.01693, 0, 3.80987, -17.4788)
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" parent="Floor" instance=ExtResource("1_gwj1q")]
+transform = Transform3D(9.57355, 0, 0, 0, 1.90592, 0, 0, 0, 5.01693, 0, 3.80987, -26.1753)
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" parent="Floor" instance=ExtResource("1_gwj1q")]
+transform = Transform3D(9.57355, 0, 0, 0, 1.90592, 0, 0, 0, 5.01693, 0, 1.96298, -21.3865)
+skeleton = NodePath("../..")
+
+[node name="MovableBox" parent="." instance=ExtResource("2_04a6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.9471, -7)
+
+[node name="Player" parent="." instance=ExtResource("3_osvh4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00245, 0.5, 2.91155)
+jump_initial_impulse = 4.5
+
+[node name="Camera" parent="." instance=ExtResource("4_3g46g")]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 5, 7.071, 5)
+cull_mask = 524287
+current = true
+size = 9.745
+
+[node name="Fairy" parent="." instance=ExtResource("5_oadee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2684, 0.5, 2.36629)
+
+[node name="MovableBox2" parent="." instance=ExtResource("2_04a6s")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.92927, 3.45679, -13.7455)
+
+[node name="Button" parent="." instance=ExtResource("6_4g0lh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11979, 3.67216, -11.4467)
+
+[node name="elevate" parent="." node_paths=PackedStringArray("activators") instance=ExtResource("7_wy3ph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163757, 3.20486, -14.625)
+activators = [NodePath("../Button")]
+
+[node name="End" parent="elevate" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.455249, 0)
+
+[node name="MovableBox3" parent="." instance=ExtResource("2_04a6s")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.86724, 4.96223, -17.9459)
+
+[node name="MovableBox4" parent="." instance=ExtResource("2_04a6s")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.14608, 5.07453, -16.6415)
+
+[editable path="elevate"]
