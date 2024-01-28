@@ -69,3 +69,9 @@ func _orient_to_direction(direction: Vector3, delta: float) -> void:
 
 func _on_refresh_light_value_timer_timeout():
 	$LightSensorScene.refresh()
+
+
+func _on_kill_body_entered(body):
+	if body == Game.get_player():
+		Game.die()
+	pass # Replace with function body.

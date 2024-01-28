@@ -18,6 +18,9 @@ extends CharacterBody3D
 @onready var _save_fairy_area := $SaveFairyArea
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("r"):
+		Game.die()
+	
 	var is_just_jumping: bool = Input.is_action_just_pressed("space") and is_on_floor()
 	var just_stopped_jump: bool = Input.is_action_just_released("space") and velocity.y > 0 and not is_on_floor()
 	var is_trying_to_interact: bool = Input.is_action_pressed("interact")

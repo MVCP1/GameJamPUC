@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bb2sap67bu1sb"]
+[gd_scene load_steps=9 format=3 uid="uid://bb2sap67bu1sb"]
 
 [ext_resource type="ArrayMesh" uid="uid://ccatadt8fh1kx" path="res://asset/Mini Dungeon/character-orc.obj" id="1_cvxsm"]
 [ext_resource type="Script" path="res://entity/mob.gd" id="1_vofqv"]
@@ -16,6 +16,9 @@ height = 0.065
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kmhpj"]
 radius = 0.34
 height = 0.92
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g1brd"]
+size = Vector3(0.508362, 0.791016, 0.657227)
 
 [node name="Mob" type="CharacterBody3D" groups=["can_press", "enemy"]]
 collision_layer = 16
@@ -54,4 +57,13 @@ shape = SubResource("CapsuleShape3D_kmhpj")
 wait_time = 0.1
 autostart = true
 
+[node name="Kill" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kill"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0857849, 0.354763, 0.0631498)
+shape = SubResource("BoxShape3D_g1brd")
+
 [connection signal="timeout" from="RefreshLightValueTimer" to="." method="_on_refresh_light_value_timer_timeout"]
+[connection signal="body_entered" from="Kill" to="." method="_on_kill_body_entered"]

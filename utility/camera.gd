@@ -15,7 +15,7 @@ enum shakeTypeList {
 	DAMAGE
 }
 
-const plane_projection = false
+@export var plane_projection = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

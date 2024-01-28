@@ -1,67 +1,203 @@
-[gd_scene load_steps=6 format=3 uid="uid://hb2afbrg3jaa"]
+[gd_scene load_steps=9 format=3 uid="uid://hb2afbrg3jaa"]
 
 [ext_resource type="PackedScene" uid="uid://crdp5f1iar5n5" path="res://map/tile_box.tscn" id="1_37djo"]
 [ext_resource type="PackedScene" uid="uid://nlidij6kaaek" path="res://entity/player.tscn" id="3_wvscg"]
 [ext_resource type="PackedScene" uid="uid://caswk7rd54bhd" path="res://utility/camera.tscn" id="4_p4q4c"]
 [ext_resource type="PackedScene" uid="uid://b5seaexu7yy8n" path="res://item/crystal.tscn" id="5_lh2a1"]
 [ext_resource type="PackedScene" uid="uid://8nsp36ic37w6" path="res://entity/fairy.tscn" id="5_spcx5"]
+[ext_resource type="PackedScene" uid="uid://dlmbyhsrt05y1" path="res://utility/die.tscn" id="6_3e6l1"]
+[ext_resource type="PackedScene" uid="uid://ckl7l6l84vgwb" path="res://map/platform.tscn" id="7_dhlc6"]
+[ext_resource type="PackedScene" uid="uid://dpxcujn61ww5i" path="res://item/light_button.tscn" id="8_iw23p"]
 
 [node name="Main" type="Node3D"]
 
+[node name="black" parent="." instance=ExtResource("6_3e6l1")]
+transform = Transform3D(335.376, 0, 0, 0, 1, 0, 0, 0, 505.514, 0.444843, 0, -0.12174)
+
 [node name="Floor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.46782, 0)
+
+[node name="MeshInstance3D9" parent="Floor" instance=ExtResource("1_37djo")]
+transform = Transform3D(7.21209, 0, 0, 0, 1, 0, 0, 0, 1, -3.84012, 11.0183, -29.1449)
+skeleton = NodePath("../..")
 
 [node name="MeshInstance3D" parent="Floor" instance=ExtResource("1_37djo")]
-transform = Transform3D(21.8931, 0, 0, 0, 0.989402, 0, 0, 0, 48.9215, 0, 0, -19.3901)
+transform = Transform3D(2.25818, 0, 0, 0, 1, 0, 0, 0, 12.4299, -2.41629, 8.04992, -0.652349)
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D2" parent="Floor" instance=ExtResource("1_37djo")]
-transform = Transform3D(1.79974, 0, 0, 0, 1, 0, 0, 0, 21.5997, -4.1455, 0.889788, -5.82029)
+transform = Transform3D(-1.02476e-07, 0, 4.6308, 0, 1, 0, -2.34439, 0, -2.02419e-07, -1.24546, 8.04992, -7.86619)
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D3" parent="Floor" instance=ExtResource("1_37djo")]
-transform = Transform3D(11.8046, 0, 0, 0, 1, 0, 0, 0, 15.029, 5.5821, 0.889788, -2.5259)
+transform = Transform3D(1.28934, 0, 0, 0, 1, 0, 0, 0, 3.46281, 9.2548, 8.04992, -11.969)
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D4" parent="Floor" instance=ExtResource("1_37djo")]
-transform = Transform3D(-2.48119e-07, 0, 10.4588, 0, 1, 0, -5.67629, 0, -4.57169e-07, 1.97932, 0.903282, -16.8016)
+transform = Transform3D(-1.02476e-07, 0, 7.6036, 0, 1, 0, -2.34439, 0, -3.32364e-07, 7.434, 8, -18.731)
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D5" parent="Floor" instance=ExtResource("1_37djo")]
-transform = Transform3D(1.79974, 0, 0, 0, 1, 0, 0, 0, 21.5997, 10.6201, 0.889787, -20.6591)
+transform = Transform3D(-2.34439, 0, -6.64728e-07, 0, 1, 0, 2.04953e-07, 0, -7.6036, 2.543, 8, -21.253)
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D6" parent="Floor" instance=ExtResource("1_37djo")]
-transform = Transform3D(11.8046, 0, 0, 0, 1, 0, 0, 0, 10.3158, 7.00383, 0.889788, -28.8833)
+transform = Transform3D(1.3987e-06, 0, -10.2336, 0, 1, 0, 10.6662, 0, 1.34197e-06, 6.437, 8, -30.115)
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" parent="Floor" instance=ExtResource("1_37djo")]
+transform = Transform3D(1.59729, 0, 1.72907e-06, 0, 4.80272, 0, -2.79279e-07, 0, 9.88913, 0.525693, 9.14498, -30.1036)
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D7" parent="Floor" instance=ExtResource("1_37djo")]
-transform = Transform3D(11.8046, 0, 0, 0, 1, 0, 0, 0, 15.029, -8.9674, 0.889789, -26.2722)
+transform = Transform3D(-1.02476e-07, 0, 2.58402, 0, 1, 0, -2.34439, 0, -1.12951e-07, 8.60727, 7.98207, -7.86619)
 skeleton = NodePath("../..")
 
 [node name="Player" parent="." instance=ExtResource("3_wvscg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00245, 0.5, 2.91155)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00245, 17.4528, -30.0884)
 jump_initial_impulse = 4.5
 
 [node name="Camera" parent="." instance=ExtResource("4_p4q4c")]
-transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 5, 7.071, 5)
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 5, 19.8514, 5)
 cull_mask = 524287
 current = true
 size = 9.745
+plane_projection = true
 
 [node name="Fairy" parent="." instance=ExtResource("5_spcx5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.749038, 2.06265, 2.36629)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.749038, 14.8431, 2.36629)
+energy_expense_modifier = 0.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.925377, -0.069138, 0.37269, -0.26236, 0.592816, 0.761404, -0.273579, -0.802365, 0.530439, -6.79944, 17.8323, -4.76837e-07)
+visible = false
+light_angular_distance = 46.21
+light_negative = true
 
 [node name="Crystal" parent="." instance=ExtResource("5_lh2a1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76934, 0.494701, -2.60321)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 12, -27)
 
 [node name="Crystal2" parent="." instance=ExtResource("5_lh2a1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30345, 0.494701, -11.9129)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 12, -32)
 
 [node name="Crystal3" parent="." instance=ExtResource("5_lh2a1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93438, 0.494701, -13.6388)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.54658, 12, -26.2186)
 
-[node name="Crystal4" parent="." instance=ExtResource("5_lh2a1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.26436, 0.494701, -22.4818)
+[node name="Plataform" parent="." node_paths=PackedStringArray("activators") instance=ExtResource("7_dhlc6")]
+transform = Transform3D(-4.35087e-08, 0, 0.995362, 0, 0.460986, 0, -0.995362, 0, -4.35087e-08, 4.77556, 14.7308, -30.7845)
+activators = [NodePath("../LightButton")]
 
-[node name="Crystal5" parent="." instance=ExtResource("5_lh2a1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00623, 0.494701, -23.6186)
+[node name="MeshInstance3D" parent="Plataform/box/CollisionShape3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.814707, 0)
+
+[node name="End" parent="Plataform" index="2"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, -2.92234)
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("1_37djo")]
+transform = Transform3D(-4.37114e-08, 0, 2, 0, 0.742557, 0, -1, 0, -8.74228e-08, 6.30399, 14.2522, -30.7937)
+
+[node name="MeshInstance3D2" parent="." instance=ExtResource("1_37djo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.12426, 12.1244, -28.7937)
+
+[node name="MeshInstance3D3" parent="." instance=ExtResource("1_37djo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1.7, 0, -1, 0, -4.37114e-08, 7.12426, 12.3744, -27.7937)
+
+[node name="MeshInstance3D4" parent="." instance=ExtResource("1_37djo")]
+transform = Transform3D(-8.72199e-08, 0, 0.997679, 0, 0.740254, 0, -1.99536, 0, -4.361e-08, 6.12426, 13.6244, -28.2937)
+
+[node name="LightButton" parent="." instance=ExtResource("8_iw23p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.40407, 13.6823, -29.3529)
+
+[node name="Plataform2" parent="." instance=ExtResource("7_dhlc6")]
+transform = Transform3D(1, 0, 0, 0, 0.507056, 0, 0, 0, 1, 1.58912, 11.6619, -7.89632)
+always_active = true
+
+[node name="box" parent="Plataform2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.1265, 0, 0, 0)
+
+[node name="End" parent="Plataform2" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15945, 0, -0.114254)
+
+[node name="Plataform3" parent="." node_paths=PackedStringArray("activators") instance=ExtResource("7_dhlc6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.422625, 0, 1, 0, -4.37114e-08, 9.18025, 11.7112, -16.9839)
+activators = [NodePath("../LightButton2")]
+fairy_distance = 3
+
+[node name="box" parent="Plataform3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.1265, 0, 0, 0)
+
+[node name="End" parent="Plataform3" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5866, 0, -0.114253)
+
+[node name="LightButton2" parent="." instance=ExtResource("8_iw23p")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 7.37897, 11.8532, -15.0171)
+
+[node name="MeshInstance3D5" parent="." instance=ExtResource("1_37djo")]
+transform = Transform3D(1.67237, 0, 0, 0, 1, 0, 0, 0, 6.09224, -13.4183, 14.3953, -29.2015)
+
+[node name="LightButton3" parent="." instance=ExtResource("8_iw23p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.79908, 14.2572, -30.6873)
+
+[node name="Plataform4" parent="." node_paths=PackedStringArray("activators") instance=ExtResource("7_dhlc6")]
+transform = Transform3D(1, 0, 0, 0, 0.458794, 0, 0, 0, 1, -7.92137, 14.7345, -29.9462)
+activators = [NodePath("../LightButton3")]
+time = 1.5
+
+[node name="Start" parent="Plataform4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.08353)
+
+[node name="box" parent="Plataform4" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="End" parent="Plataform4" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.2102)
+
+[node name="Plataform5" parent="." node_paths=PackedStringArray("activators") instance=ExtResource("7_dhlc6")]
+transform = Transform3D(1, 0, 0, 0, 0.458794, 0, 0, 0, 1, -9.19323, 14.7345, -29.9462)
+activators = [NodePath("../LightButton3")]
+time = 1.5
+
+[node name="Start" parent="Plataform5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.91647)
+
+[node name="box" parent="Plataform5" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="End" parent="Plataform5" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.7898)
+
+[node name="Plataform6" parent="." node_paths=PackedStringArray("activators") instance=ExtResource("7_dhlc6")]
+transform = Transform3D(1, 0, 0, 0, 0.458794, 0, 0, 0, 1, -10.5012, 14.7345, -29.9462)
+activators = [NodePath("../LightButton3")]
+time = 1.5
+
+[node name="Start" parent="Plataform6" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.08353)
+
+[node name="box" parent="Plataform6" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="End" parent="Plataform6" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.2102)
+
+[node name="Plataform7" parent="." node_paths=PackedStringArray("activators") instance=ExtResource("7_dhlc6")]
+transform = Transform3D(1, 0, 0, 0, 0.458794, 0, 0, 0, 1, -11.7864, 14.7345, -29.9462)
+activators = [NodePath("../LightButton3")]
+time = 1.5
+
+[node name="Start" parent="Plataform7" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.91647)
+
+[node name="box" parent="Plataform7" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="End" parent="Plataform7" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.7898)
+
+[editable path="Plataform"]
+[editable path="Plataform2"]
+[editable path="Plataform3"]
+[editable path="Plataform4"]
+[editable path="Plataform5"]
+[editable path="Plataform6"]
+[editable path="Plataform7"]

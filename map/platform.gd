@@ -1,7 +1,8 @@
 extends Node3D
 
+@export var always_active = false
 @export var activators : Array[Node]
-@export var time = 3
+@export var time: float = 3
 @export var fairy_distance = 2
 @export var likes_fairy = true
 var forward = true
@@ -27,7 +28,7 @@ func _process(_delta):
 			active = not likes_fairy
 		else:
 			active = likes_fairy
-	if active:
+	if active or always_active:
 		tween.play()
 		$box/CollisionShape3D/MeshInstance3D.material_override.albedo_color = Color(0,1,0)
 	else:
