@@ -1,5 +1,8 @@
 extends Node
 
+func die():
+	get_tree().reload_current_scene()
+
 func get_world():
 	return get_tree().root.get_node('Main')
 	

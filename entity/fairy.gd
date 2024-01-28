@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+var faint = preload("res://item/faint_light.tscn")
+
 @export_category("Area of Detection Radiuses")
 @export var toggle_outline_radius: float = 3.5
 @export var charge_radius: float = 3.5
@@ -15,9 +17,9 @@ extends CharacterBody3D
 @export var min_light: float = 0.5
 @export var energy_expense_modifier: float = 1.5
 
-@export_category("Fairy Luminescense")
-@export var control_flight: bool = true
-@export var max_y_offset: float = 20
+@export_category("Fairy Flight")
+@export var control_flight: bool = false
+@export var max_y_offset: float = 5
 @export var min_y_offset: float = 1
 @export var y_offset_step: float = 0.5
 var y_offset: float = min_y_offset
@@ -59,11 +61,12 @@ func _process(_delta):
 		charging_pulse = true
 	if Input.is_action_just_released('r_click'):
 		pulse()
-
-	if Input.is_action_pressed('fairy_down'):
-		y_offset = clamp(y_offset-y_offset_step, min_y_offset, max_y_offset)
-	if Input.is_action_pressed('fairy_up'):
-		y_offset = clamp(y_offset+y_offset_step, min_y_offset, max_y_offset)
+		
+	if control_flight:
+		if Input.is_action_just_released('fairy_down'):
+			y_offset = clamp(y_offset-y_offset_step, min_y_offset, max_y_offset)
+		if Input.is_action_just_released('fairy_up'):
+			y_offset = clamp(y_offset+y_offset_step, min_y_offset, max_y_offset)
 
 	var energy_percent = ($Energy.value/$Energy.max_value)
 	$MeshInstance3D.scale = Vector3(1,1,1)*clamp(max_size*energy_percent, min_size, max_size)
@@ -99,6 +102,7 @@ func add_charge(multiplier: float = 1):
 
 func pulse():
 	if($Pulse.value >= min_pulse_charge):
+		$MeshInstance3D/OmniLight3D.light_color = Color(1, 1, 1)
 		can_update_light = false
 		var pulse_multiplier = $Pulse.value/min_pulse_charge
 		var pulse_percent = $Pulse.value/$Pulse.max_value
@@ -110,6 +114,9 @@ func pulse():
 		#$MeshInstance3D/OmniLight3D.light_energy = max_light*pulse_multiplier
 		grow_tween.connect("finished", on_grow_tween_finished)
 		
+		var new_faint = faint.instantiate()
+		get_parent().add_child(new_faint)
+		new_faint.global_position = global_position
 		#for body in $PulseArea.get_overlapping_bodies():
 			#print(body)
 	charging_pulse = false

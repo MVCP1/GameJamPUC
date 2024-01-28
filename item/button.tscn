@@ -76,6 +76,7 @@ _surfaces = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_liu6d"]
+size = Vector3(1, 0.34375, 1)
 
 [node name="Button" type="Node3D"]
 script = ExtResource("1_rsu1w")
@@ -103,4 +104,5 @@ collision_layer = 3
 collision_mask = 21
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.328125, 0)
 shape = SubResource("BoxShape3D_liu6d")

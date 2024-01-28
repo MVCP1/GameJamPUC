@@ -34,6 +34,7 @@ size = Vector3(1.5, 1.5, 1.5)
 [node name="Player" type="CharacterBody3D" groups=["can_press"]]
 collision_layer = 4
 collision_mask = 51
+floor_block_on_wall = false
 script = ExtResource("1_2y2i6")
 acceleration = 10.0
 jump_initial_impulse = 5.5

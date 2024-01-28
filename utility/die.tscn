@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlmbyhsrt05y1"]
+
+[ext_resource type="Script" path="res://utility/die.gd" id="1_0f0hq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fxs5e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7rrp"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iohrm"]
+
+[node name="die" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_fxs5e")
+surface_material_override/0 = SubResource("StandardMaterial3D_l7rrp")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_0f0hq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 2.67519, 0)
+shape = SubResource("BoxShape3D_iohrm")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

@@ -32,7 +32,7 @@ _surfaces = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_liu6d"]
-size = Vector3(0.841904, 0.904175, 0.538818)
+size = Vector3(0.841904, 1.15509, 0.753845)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0e80"]
 albedo_color = Color(1, 0.298039, 0.27451, 1)
@@ -52,22 +52,22 @@ collision_mask = 0
 script = SubResource("GDScript_llc52")
 
 [node name="Outline" type="MeshInstance3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.321072, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.830006, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_y0gg7")
 mesh = SubResource("ArrayMesh_ur3eb")
 skeleton = NodePath("../../On")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00351715, 0.580166, 0.00231934)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00351715, 0.705624, 0.0365296)
 shape = SubResource("BoxShape3D_liu6d")
 
 [node name="Off" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.321072, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.830006, 0)
 material_override = SubResource("StandardMaterial3D_l0e80")
 mesh = ExtResource("2_spg3s")
 
 [node name="On" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.321072, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.830006, 0)
 material_override = SubResource("StandardMaterial3D_k8x7u")
 mesh = ExtResource("2_spg3s")
