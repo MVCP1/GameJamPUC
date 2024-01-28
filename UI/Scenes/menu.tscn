@@ -141,7 +141,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f5fqc")
 arrowMarginFromCenter = 310
-centerOffSet = 205
+centerOffSet = 335
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -153,11 +153,18 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
-offset_left = 759.0
-offset_top = 195.0
-offset_right = 1161.0
-offset_bottom = 1025.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -335.0
+offset_top = -409.0
+offset_right = 335.0
+offset_bottom = 409.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 0
 alignment = 1
 
@@ -169,9 +176,12 @@ text = "Fairy Light"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
 alignment = 1
 
 [node name="BotoesMenu" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
@@ -212,35 +222,118 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="Nomes" type="Label" parent="VBoxContainer/HBoxContainer/BotoesCreditos"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 50
-text = "Antônio Isaac
+text = "Isaac Lima
 
 Marcos Pacheco
 
 Guilherme Campos 
 
-Gabriel Aragão"
+Gabriel Aragão
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Espaço" type="Control" parent="VBoxContainer/HBoxContainer/BotoesCreditos"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/BotoesCreditos"]
+[node name="CreditosIsaac" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/BotoesCreditos"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/BotoesCreditos/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/BotoesCreditos/CreditosIsaac"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Dev | Programação | Level Design"
+
+[node name="assetCreditosIsaac" type="Button" parent="VBoxContainer/HBoxContainer/BotoesCreditos/CreditosIsaac"]
+modulate = Color(0, 0.662745, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_pressed_color = Color(0, 0.937255, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.258824, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Isaac Lima"
+flat = true
+
+[node name="CreditosMarcos" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/BotoesCreditos"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/BotoesCreditos/CreditosMarcos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Dev | Programação | Level Design"
+
+[node name="assetCreditosMarcos" type="Button" parent="VBoxContainer/HBoxContainer/BotoesCreditos/CreditosMarcos"]
+modulate = Color(0, 0.662745, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_pressed_color = Color(0, 0.937255, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.258824, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Marcos Pacheco"
+flat = true
+
+[node name="CreditosAragao" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/BotoesCreditos"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/BotoesCreditos/CreditosAragao"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Level Design "
+
+[node name="assetCreditosAragão" type="Button" parent="VBoxContainer/HBoxContainer/BotoesCreditos/CreditosAragao"]
+modulate = Color(0, 0.662745, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_pressed_color = Color(0, 0.937255, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.258824, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Gabriel Aragão"
+flat = true
+
+[node name="CreditosCampos" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/BotoesCreditos"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/BotoesCreditos/CreditosCampos"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "UI | Programação"
+
+[node name="assetCreditosCampos" type="Button" parent="VBoxContainer/HBoxContainer/BotoesCreditos/CreditosCampos"]
+modulate = Color(0, 0.662745, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_pressed_color = Color(0, 0.937255, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.258824, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Guilherme Campos"
+flat = true
+
+[node name="Creditos Kenney" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/BotoesCreditos"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/BotoesCreditos/Creditos Kenney"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
 text = "Assets"
 
-[node name="assetCreditos" type="Button" parent="VBoxContainer/HBoxContainer/BotoesCreditos/HBoxContainer"]
+[node name="assetCreditos" type="Button" parent="VBoxContainer/HBoxContainer/BotoesCreditos/Creditos Kenney"]
 modulate = Color(0, 0.662745, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -257,6 +350,7 @@ theme_override_font_sizes/font_size = 40
 text = "Voltar"
 
 [node name="BotoesOpcoes" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
@@ -342,7 +436,15 @@ bus = &"Musica"
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesMenu/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesMenu/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesMenu/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesCreditos/HBoxContainer/assetCreditos" to="." method="_on_asset_creditos_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesCreditos/CreditosIsaac/assetCreditosIsaac" to="." method="_on_asset_creditos_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesCreditos/CreditosIsaac/assetCreditosIsaac" to="." method="_on_asset_creditos_isaac_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesCreditos/CreditosMarcos/assetCreditosMarcos" to="." method="_on_asset_creditos_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesCreditos/CreditosMarcos/assetCreditosMarcos" to="." method="_on_asset_creditos_marcos_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesCreditos/CreditosAragao/assetCreditosAragão" to="." method="_on_asset_creditos_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesCreditos/CreditosAragao/assetCreditosAragão" to="." method="_on_asset_creditos_aragão_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesCreditos/CreditosCampos/assetCreditosCampos" to="." method="_on_asset_creditos_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesCreditos/CreditosCampos/assetCreditosCampos" to="." method="_on_asset_creditos_campos_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesCreditos/Creditos Kenney/assetCreditos" to="." method="_on_asset_creditos_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesCreditos/volta" to="." method="_on_volta_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesOpcoes/HBoxContainer/assetCreditos" to="." method="_on_asset_creditos_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesOpcoes/voltaOpcoes" to="." method="_on_volta_opcoes_pressed"]

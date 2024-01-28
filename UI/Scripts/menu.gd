@@ -98,3 +98,23 @@ func _on_volta_opcoes_pressed():
 		arrow.visible = true
 	playbutton.grab_focus()
 	pass # Replace with function body.
+
+
+func _on_asset_creditos_isaac_pressed():
+	var _creditoAssets = OS.shell_open("https://www.linkedin.com/in/isaac-lima")
+	pass # Replace with function body.
+
+
+func _on_asset_creditos_marcos_pressed():
+	var _creditoAssets = OS.shell_open("https://www.linkedin.com/in/marcos-vinicp")
+	pass # Replace with function body.
+
+
+func _on_asset_creditos_aragão_pressed():
+	var _creditoAssets = OS.shell_open("https://www.linkedin.com/in/aragaog")
+	pass # Replace with function body.
+
+
+func _on_asset_creditos_campos_pressed():
+	var _creditoAssets = OS.shell_open("https://www.linkedin.com/in/pinkywillgcr")
+	pass # Replace with function body.
