@@ -53,7 +53,7 @@ func _process(_delta):
 					if area.is_in_group("has_outline"):
 						if area.is_in_group("charge_station"):
 							_is_charging = true
-						max_y_offset = 0.2
+						#max_y_offset = 0.2
 						move_target = area
 			if move_target == null:
 				_can_move = not _can_move

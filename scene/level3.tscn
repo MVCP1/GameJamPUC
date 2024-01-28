@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmllyi3p5cu5s"]
+
+[ext_resource type="PackedScene" uid="uid://dlmbyhsrt05y1" path="res://utility/die.tscn" id="1_ja11q"]
+[ext_resource type="MeshLibrary" uid="uid://n55ok4r7qx1s" path="res://map/mesh_lib.tres" id="2_je2ps"]
+[ext_resource type="PackedScene" uid="uid://nlidij6kaaek" path="res://entity/player.tscn" id="3_i53q4"]
+[ext_resource type="PackedScene" uid="uid://caswk7rd54bhd" path="res://utility/camera.tscn" id="4_2iind"]
+[ext_resource type="PackedScene" uid="uid://8nsp36ic37w6" path="res://entity/fairy.tscn" id="5_e6g3e"]
+[ext_resource type="PackedScene" uid="uid://crwbcqco0b210" path="res://map/fairy_pass_through.tscn" id="6_ppvsk"]
+[ext_resource type="PackedScene" uid="uid://bm2g6fh53wi8" path="res://map/elevate.tscn" id="7_1801e"]
+[ext_resource type="PackedScene" uid="uid://dpxcujn61ww5i" path="res://item/light_button.tscn" id="8_uik04"]
+[ext_resource type="PackedScene" uid="uid://calb6hih46ttq" path="res://map/door.tscn" id="9_g5xpc"]
+
+[node name="Main" type="Node3D"]
+
+[node name="black" parent="." instance=ExtResource("1_ja11q")]
+transform = Transform3D(335.376, 0, 0, 0, 1, 0, 0, 0, 505.514, 0.444843, 0, -0.12174)
+
+[node name="Left" type="Node3D" parent="."]
+
+[node name="GridMap" type="GridMap" parent="Left"]
+mesh_library = ExtResource("2_je2ps")
+cell_size = Vector3(1, 0.5, 1)
+data = {
+"cells": PackedInt32Array(1900530, 65503, 8, 1900529, 65509, 8, 1900528, 65508, 8, 1900528, 65507, 8, 1900529, 65506, 8, 1900529, 65505, 8, 2031601, 65504, 8, 2031601, 65503, 8, 2031601, 65505, 8, 2031601, 65507, 8, 2031601, 65508, 8, 2031601, 65509, 8, 2162673, 65509, 8, 2162673, 65508, 8, 2162673, 65505, 8, 2162673, 65504, 8, 2162673, 65503, 8, 2162673, 65507, 8, 2293745, 65509, 8, 2293745, 65508, 8, 2293745, 65507, 8, 2293745, 65504, 8, 2293745, 65503, 8, 2293745, 65506, 8, 1900528, 65509, 8, 1900527, 65509, 8, 1900526, 65509, 8, 1900525, 65509, 8, 1900524, 65509, 8, 1900523, 65509, 8, 1900522, 65509, 8, 1966057, 65509, 8, 1966057, 65508, 8, 1966058, 65508, 8, 1966058, 65509, 8, 2031594, 65509, 8, 2031595, 65509, 8, 2031596, 65509, 8, 2031597, 65509, 8, 2031598, 65509, 8, 2031599, 65509, 8, 2031600, 65509, 8, 2162672, 65509, 8, 2162671, 65509, 8, 2162670, 65509, 8, 2162669, 65509, 8, 2162668, 65509, 8, 2162667, 65509, 8, 2293744, 65509, 8, 2293743, 65509, 8, 2293742, 65509, 8, 2293741, 65509, 8, 2293740, 65509, 8, 2293744, 65508, 8, 2293744, 65507, 8, 2293744, 65506, 8, 2293744, 65504, 8, 2293744, 65503, 8, 2293743, 65503, 8, 2293743, 65504, 8, 2293743, 65506, 8, 2293743, 65507, 8, 2293743, 65508, 8, 2293742, 65508, 8, 2293742, 65507, 8, 2293742, 65506, 8, 2293742, 65504, 8, 2293742, 65503, 8, 2293741, 65503, 8, 2293741, 65502, 8, 2293741, 65504, 8, 2293741, 65505, 8, 2293741, 65506, 8, 2293741, 65507, 8, 2293741, 65508, 8, 2293740, 65508, 8, 2293740, 65507, 8, 2293740, 65506, 8, 2293740, 65505, 8, 2293740, 65504, 8, 2293740, 65503, 8, 2293745, 65505, 8, 2293744, 65505, 8, 2293743, 65505, 8, 2293742, 65505, 8, 1507324, 3, 3, 1507324, 4, 3, 1507325, 3, 3, 1507325, 2, 3, 1507324, 2, 3, 1507325, 4, 3, 1507324, 1, 3, 1507325, 1, 3, 1507325, 0, 3, 1507325, 65535, 3, 1507324, 65534, 3, 1507325, 65534, 3, 1507324, 65535, 3, 1507324, 0, 3, 1507324, 65528, 3, 1507324, 65529, 3, 1507324, 65530, 3, 1507324, 65531, 3, 1507324, 65532, 3, 1507324, 65533, 3, 1507325, 65532, 3, 1507325, 65531, 3, 1507325, 65530, 3, 1507325, 65529, 3, 1507325, 65533, 3, 1507325, 65528, 3)
+}
+metadata/_editor_floor_ = Vector3(0, 22, 0)
+
+[node name="Player" parent="." instance=ExtResource("3_i53q4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.33547, 12.6079, 3.45666)
+jump_initial_impulse = 4.5
+
+[node name="Camera" parent="." instance=ExtResource("4_2iind")]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 5, 19.8514, 5)
+cull_mask = 524287
+current = true
+size = 9.745
+plane_projection = true
+
+[node name="Fairy" parent="." instance=ExtResource("5_e6g3e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.749038, 14.8431, 2.36629)
+energy_expense_modifier = 0.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.925377, -0.069138, 0.37269, -0.26236, 0.592816, 0.761404, -0.273579, -0.802365, 0.530439, -6.79944, 17.8323, -4.76837e-07)
+visible = false
+light_angular_distance = 46.21
+light_negative = true
+
+[node name="FairyPass" parent="." instance=ExtResource("6_ppvsk")]
+transform = Transform3D(2.24258, 0, 0, 0, 1.27295, 0, 0, 0, 0.257294, -3.04478, 12.668, -2.65722)
+
+[node name="elevate" parent="." node_paths=PackedStringArray("activators") instance=ExtResource("7_1801e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97329, 12.25, -1.44453)
+activators = [NodePath("../LightButton")]
+
+[node name="End" parent="elevate" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07948, 0)
+
+[node name="LightButton" parent="." instance=ExtResource("8_uik04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.13057, 11.8404, -3.90416)
+
+[node name="door" parent="." node_paths=PackedStringArray("activators") instance=ExtResource("9_g5xpc")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.9007, 12.25, -6.12915)
+activators = [NodePath("../LightButton")]
+
+[editable path="elevate"]

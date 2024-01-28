@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://ctrw2n1rt0tfg"]
 
 [ext_resource type="Script" path="res://item/button.gd" id="1_rsu1w"]
-[ext_resource type="Texture2D" uid="uid://bxd24qoo0ftgn" path="res://asset/Mini Dungeon/Textures/colormap.png" id="2_o2ixh"]
-[ext_resource type="ArrayMesh" uid="uid://dkgt1polgy7uw" path="res://asset/Mini Dungeon/dirt.obj" id="3_g6upg"]
+[ext_resource type="Texture2D" uid="uid://bxd24qoo0ftgn" path="res://assets/Mini Dungeon/Textures/colormap.png" id="2_o2ixh"]
+[ext_resource type="ArrayMesh" uid="uid://dkgt1polgy7uw" path="res://assets/Mini Dungeon/dirt.obj" id="3_g6upg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jng2a"]
 resource_name = "colormap"
