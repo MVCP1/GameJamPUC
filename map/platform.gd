@@ -12,11 +12,9 @@ func _ready():
 	move()
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Game.get_fairy().global_position.distance_to($box.global_position) > fairy_distance:
-
 		active = not likes_fairy
 	else:
 		active = likes_fairy
@@ -27,7 +25,6 @@ func _process(_delta):
 		tween.pause()
 		$box/CollisionShape3D/MeshInstance3D.material_override.albedo_color = Color(1,0,0)
 	pass
-
 
 func move():
 	tween = create_tween()

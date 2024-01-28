@@ -22,6 +22,8 @@ extends CharacterBody3D
 var direction = Vector3(0,0,0)
 var distance
 
+var move_target = null
+
 const pulse_light_multiplier = 2
 var charging_pulse = false
 const min_pulse_charge = 50
@@ -35,8 +37,17 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_action_just_pressed('l_click') and not _is_charging:
-		_can_move = not _can_move
+	print(move_target)
+	if Input.is_action_just_released('l_click') and not _is_charging:
+		#_can_move = not _can_move
+		if(move_target):
+			move_target = null
+		else:
+			for area in $ToggleOutlineArea.get_overlapping_bodies()+ $ToggleOutlineArea.get_overlapping_areas():
+				print('checking', area)
+				if(not move_target):
+					if area.is_in_group("has_outline"):
+						move_target = area
 	if Input.is_action_pressed('r_click'):
 		charging_pulse = true
 	if Input.is_action_just_released('r_click'):
@@ -59,10 +70,10 @@ func _process(_delta):
 		move(energy_percent)
 
 func move(energy_percent: float) -> void:
-	var mouse = Game.get_mouse() + Vector3(0,clamp(max_y_offset * energy_percent, 0, max_y_offset),0)
-	distance = global_position.distance_to(mouse)
+	var target = (move_target.global_position if move_target else Game.get_mouse()) + Vector3(0,clamp(max_y_offset * energy_percent, 0, max_y_offset),0)
+	distance = global_position.distance_to(target)
 	if(distance > distance_min):
-		direction += (mouse - global_position).normalized()*2
+		direction += (target - global_position).normalized()*2
 		direction = direction.normalized()
 		var speed = clamp(distance, minSpeed, slowSpeed + (maxSpeed-slowSpeed) * energy_percent)
 		velocity = direction*speed
