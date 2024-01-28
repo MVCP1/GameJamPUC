@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://crwbcqco0b210"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n313e"]
+load_path = "res://.godot/imported/texture_01.png-5c88bf1242f552b325e9e71741dedcb1.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nc8qp"]
+albedo_texture = SubResource("CompressedTexture2D_n313e")
+metallic_specular = 1.0
+roughness = 0.25
+ao_enabled = true
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_cks05"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iohrm"]
+
+[node name="FairyPass" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_nc8qp")
+mesh = SubResource("BoxMesh_cks05")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_iohrm")

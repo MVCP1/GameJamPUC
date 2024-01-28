@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://nlidij6kaaek"]
+[gd_scene load_steps=14 format=3 uid="uid://nlidij6kaaek"]
 
 [ext_resource type="Script" path="res://entity/player.gd" id="1_2y2i6"]
 [ext_resource type="ArrayMesh" uid="uid://fmei57yf86n1" path="res://asset/Mini Dungeon/character-human.obj" id="1_advhw"]
@@ -54,7 +54,12 @@ albedo_texture = ExtResource("3_m0hiq")
 [sub_resource type="SphereShape3D" id="SphereShape3D_i6nhx"]
 radius = 1.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vhwhq"]
+size = Vector3(1.5, 1.5, 1.5)
+
 [node name="Player" type="CharacterBody3D" groups=["can_press"]]
+collision_layer = 4
+collision_mask = 51
 script = ExtResource("1_2y2i6")
 acceleration = 10.0
 jump_initial_impulse = 5.5
@@ -79,7 +84,17 @@ surface_material_override/5 = SubResource("StandardMaterial3D_mtoat")
 
 [node name="InteractDetector" type="Area3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.0645884, 0.248468, -0.34997)
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractDetector"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.220946, 0.839804, -0.181539)
 shape = SubResource("SphereShape3D_i6nhx")
+
+[node name="SaveFairyArea" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SaveFairyArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02004, 0.696493, -0.259986)
+shape = SubResource("BoxShape3D_vhwhq")

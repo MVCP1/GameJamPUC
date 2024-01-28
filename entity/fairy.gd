@@ -26,13 +26,11 @@ const pulse_light_multiplier = 2
 var charging_pulse = false
 const min_pulse_charge = 50
 var can_update_light = true
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	$Energy.value = 100.0
 	$MeshInstance3D/OmniLight3D.light_energy = max_light
 	$ToggleOutlineArea/CollisionShape3D.shape.radius = toggle_outline_radius
-	
-	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

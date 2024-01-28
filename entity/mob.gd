@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var rotation_speed: float = 12.0
 
 @export var light_detection_threshold: float = 0.3
+@export var likes_light: bool = false
 
 @onready var _gravity: float = -ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
@@ -14,18 +15,15 @@ extends CharacterBody3D
 @onready var texture_rect := $CanvasLayer/TextureRect
 
 func _ready():
-	# These values need to be adjusted for the actor's speed
-	# and the navigation layout.
 	navigation_agent.path_desired_distance = 0.5
 	navigation_agent.target_desired_distance = 0.5
-
-	# Make sure to not await during _ready.
 	call_deferred("actor_setup")
 
+
 func actor_setup():
-	# Wait for the first physics frame so the NavigationServer can sync.
 	await get_tree().physics_frame
 	active = true
+
 
 func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
@@ -38,24 +36,23 @@ func get_average_color(texture: ViewportTexture) -> Color:
 
 
 func _physics_process(delta):
-	$LightSensorScene.refresh()
 	var light_value = $LightSensorScene.light_level
 	
 	if light_value < light_detection_threshold:
-		active = true
+		active = false if likes_light else true
 	else:
-		active = false
+		active = true if likes_light else false
+	
+	set_movement_target(Game.get_player().global_position)
+	
+	var current_agent_position: Vector3 = global_position
+	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
+	
+	var direction = current_agent_position.direction_to(next_path_position)
+	_orient_to_direction(direction, delta)
 	
 	if not active:
 		return
-	
-	set_movement_target(Game.get_player().global_position)
-
-	var current_agent_position: Vector3 = global_position
-	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
-
-	var direction = current_agent_position.direction_to(next_path_position)
-	_orient_to_direction(direction, delta)
 	
 	velocity = velocity.lerp(direction * movement_speed, acceleration * delta)
 	velocity.y += _gravity * delta
@@ -68,3 +65,7 @@ func _orient_to_direction(direction: Vector3, delta: float) -> void:
 	var left_axis := Vector3.UP.cross(direction)
 	var rotation_basis := Basis(left_axis, Vector3.UP, direction).get_rotation_quaternion()
 	transform.basis = Basis(transform.basis.get_rotation_quaternion().slerp(rotation_basis, delta * rotation_speed))
+
+
+func _on_refresh_light_value_timer_timeout():
+	$LightSensorScene.refresh()
