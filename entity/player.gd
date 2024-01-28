@@ -14,6 +14,7 @@ extends CharacterBody3D
 @onready var _move_direction := Vector3.ZERO
 @onready var _interact_detector := $InteractDetector
 @onready var _is_grabbing: bool = false
+@onready var _save_fairy_area := $SaveFairyArea
 
 func _physics_process(delta: float) -> void:
 	var is_just_jumping: bool = Input.is_action_just_pressed("space") and is_on_floor()
@@ -47,7 +48,6 @@ func _physics_process(delta: float) -> void:
 	if just_stopped_jump:
 		velocity.y /= 2
 	
-	
 	if is_trying_to_interact:
 		_try_to_interact(Vector3(velocity.x, 0, velocity.z) * moving_objects_speed_modifier)
 
@@ -77,15 +77,14 @@ func _orient_to_direction(direction: Vector3, delta: float) -> void:
 
 
 func _try_to_interact(vel_move: Vector3) -> void:
+	# try freeing fairy
+	if _save_fairy_area.has_overlapping_bodies():
+		_save_fairy_area.get_overlapping_bodies()[0].liberate()
+	
 	if not _interact_detector.has_overlapping_bodies():
 		return
 	
 	var bodies: Array[Node3D] = _interact_detector.get_overlapping_bodies()
-	
-	# try freeing fairy
-	for body in bodies:
-		if body.is_in_group("fairy"):
-			body.liberate()
 	
 	# try grabbing
 	for body in bodies:

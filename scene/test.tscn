@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxhb0wx45owjr"]
+[gd_scene load_steps=20 format=3 uid="uid://cxhb0wx45owjr"]
 
 [ext_resource type="PackedScene" uid="uid://crdp5f1iar5n5" path="res://map/tile_box.tscn" id="1_fcksi"]
 [ext_resource type="PackedScene" uid="uid://nlidij6kaaek" path="res://entity/player.tscn" id="2_nf5h7"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://8nsp36ic37w6" path="res://entity/fairy.tscn" id="3_3xkhv"]
 [ext_resource type="PackedScene" uid="uid://caswk7rd54bhd" path="res://utility/camera.tscn" id="3_hegle"]
 [ext_resource type="PackedScene" uid="uid://ckl7l6l84vgwb" path="res://map/platform.tscn" id="4_4ia5w"]
+[ext_resource type="PackedScene" uid="uid://crwbcqco0b210" path="res://map/fairy_pass_through.tscn" id="4_q6xdj"]
 [ext_resource type="Script" path="res://map/platform.gd" id="5_hbru6"]
 [ext_resource type="PackedScene" uid="uid://dcqjhr5kfbj21" path="res://item/charge.tscn" id="8_ss5e1"]
 [ext_resource type="PackedScene" uid="uid://b5seaexu7yy8n" path="res://item/crystal.tscn" id="9_lxx5w"]
@@ -15,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bm2g6fh53wi8" path="res://map/elevate.tscn" id="11_uqn5m"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_feplc"]
-vertices = PackedVector3Array(-8.76705, 0.976624, -10.5768, -8.76705, 0.976624, 10.6732, 8.73295, 0.976624, 10.6732, 8.73295, 0.976624, -10.5768)
+vertices = PackedVector3Array(-8.26705, 0.976625, -10.0768, -8.26705, 0.976625, 10.1732, 8.23295, 0.976625, 10.1732, 8.23295, 0.976625, -10.0768)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 agent_height = 0.34
 agent_radius = 0.92
@@ -26,6 +27,8 @@ agent_radius = 0.92
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6nq4a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3suwg"]
 
 [node name="Main" type="Node3D"]
 
@@ -98,6 +101,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99022, 1.97088, -5.00434)
 [node name="MovableBox" parent="Boxes" instance=ExtResource("2_oqqrs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90541, 1.12298, 0.0222561)
 
+[node name="FairyPassThroughs" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.80424, 1.96358, 2.64149)
+
+[node name="FairyPass" parent="FairyPassThroughs" instance=ExtResource("4_q6xdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.195756, -0.96358, 1.46522)
+skeleton = NodePath("../..")
+
+[node name="FairyPass3" parent="FairyPassThroughs" instance=ExtResource("4_q6xdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.195756, 0.0347927, 1.46522)
+skeleton = NodePath("../..")
+
+[node name="FairyPass2" parent="FairyPassThroughs" instance=ExtResource("4_q6xdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19576, -0.96358, 1.47916)
+skeleton = NodePath("../..")
+
+[node name="FairyPass4" parent="FairyPassThroughs" instance=ExtResource("4_q6xdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19576, 0.0285907, 1.47916)
+skeleton = NodePath("../..")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.731026, 0.576642, 0.364808, -0.649882, 0.425427, 0.629814, 0.207978, -0.697493, 0.685747, -6.79944, 3.64611, -4.76837e-07)
 visible = false
@@ -162,5 +184,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -2)
 [node name="elevate" parent="." node_paths=PackedStringArray("activators") instance=ExtResource("11_uqn5m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.48809, 0.5, -4.84468)
 activators = [NodePath("../Button")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.73102, 0.521819, -1.8902)
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 3.68456, 0, 0, 0, 3.53525, 0, 0, 0)
+shape = SubResource("BoxShape3D_3suwg")
 
 [editable path="platform"]

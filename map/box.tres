@@ -1,9 +1,10 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dmhv6qih4l4pb"]
 
-[ext_resource type="Texture2D" uid="uid://cvyn2h0kfv3l5" path="res://asset/Prototype Textures/Orange/texture_05.png" id="1_i04lr"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2ys75"]
+load_path = "res://.godot/imported/texture_02.png-8c2073a7be5c66c9ecc980b07831d340.s3tc.ctex"
 
 [resource]
-albedo_texture = ExtResource("1_i04lr")
+albedo_texture = SubResource("CompressedTexture2D_2ys75")
 metallic_specular = 1.0
 roughness = 0.25
 ao_enabled = true

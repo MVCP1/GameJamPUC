@@ -28,8 +28,7 @@ far = 250.0
 [node name="SensorMesh" type="MeshInstance3D" parent="SubViewport/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.37114e-09, -0.1)
 layers = 524288
-cast_shadow = 0
-gi_mode = 0
+cast_shadow = 2
 mesh = SubResource("PlaneMesh_ojrjg")
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="."]

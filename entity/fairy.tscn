@@ -59,6 +59,8 @@ radius = 1.82
 radius = 0.2
 
 [node name="Fairy" type="CharacterBody3D" groups=["fairy"]]
+collision_layer = 8
+collision_mask = 3
 script = ExtResource("1_2ouis")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -69,7 +71,8 @@ skeleton = NodePath("../..")
 [node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
 layers = 524289
 light_energy = 4.243
-shadow_enabled = true
+shadow_reverse_cull_face = true
+shadow_transmittance_bias = 0.915
 omni_range = 8.1342
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -98,16 +101,22 @@ offset_bottom = 102.0
 step = 1.0
 
 [node name="PulseArea" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 18
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PulseArea"]
 shape = SubResource("SphereShape3D_ib8v5")
 
 [node name="ToggleOutlineArea" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ToggleOutlineArea"]
 shape = SubResource("SphereShape3D_l5uqd")
 
 [node name="ChargeArea" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChargeArea"]
 shape = SubResource("SphereShape3D_pdhhf")

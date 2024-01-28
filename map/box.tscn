@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c484e3nk3hpmf"]
+[gd_scene load_steps=4 format=3 uid="uid://c484e3nk3hpmf"]
 
 [ext_resource type="Material" uid="uid://dmhv6qih4l4pb" path="res://map/box.tres" id="1_qcxq3"]
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_yca4l"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1qiwd"]
 
@@ -10,15 +8,11 @@
 
 [node name="box" type="StaticBody3D"]
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-transform = Transform3D(20.532, 0, 0, 0, 1, 0, 0, 0, 19.6741, -0.237894, 0, -0.468285)
-navigation_mesh = SubResource("NavigationMesh_yca4l")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
-transform = Transform3D(0.0487045, 0, 0, 0, 1, 0, 0, 0, 0.0508282, 0.0115865, 0, 0.0238021)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 1.49012e-08, 0, -8.9407e-08)
 material_override = ExtResource("1_qcxq3")
 mesh = SubResource("BoxMesh_1qiwd")
-skeleton = NodePath("../../CollisionShape3D")
+skeleton = NodePath("../CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49012e-08, 0, 0)
