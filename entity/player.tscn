@@ -37,7 +37,7 @@ collision_mask = 51
 floor_block_on_wall = false
 script = ExtResource("1_2y2i6")
 acceleration = 10.0
-jump_initial_impulse = 5.5
+jump_initial_impulse = 4.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.496916, 0, 0, 0, 0.597137, 0, 0, 0, 0.379939, 0, 0.319258, 0)
@@ -58,7 +58,7 @@ surface_material_override/4 = SubResource("StandardMaterial3D_nw5wl")
 surface_material_override/5 = SubResource("StandardMaterial3D_nw5wl")
 
 [node name="InteractDetector" type="Area3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.0645884, 0.248468, -0.34997)
+transform = Transform3D(0.32904, 0, 0, 0, 0.411327, 0, 0, 0, 0.3, 0.0645884, 0.248468, -0.34997)
 collision_layer = 4
 collision_mask = 2
 

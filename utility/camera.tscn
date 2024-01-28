@@ -36,12 +36,14 @@ script = ExtResource("1_u5qjr")
 
 [node name="mouse" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.38419e-07, 4.23399, -0.0961151)
+visible = false
 mesh = SubResource("SphereMesh_ysnxg")
 surface_material_override/0 = SubResource("StandardMaterial3D_p72u3")
 script = SubResource("GDScript_y3wc8")
 
 [node name="centerArea" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.38419e-07, 4.23399, -0.0961151)
+visible = false
 mesh = SubResource("SphereMesh_46hpj")
 
 [node name="PlayerCenterDist" type="Label" parent="."]
