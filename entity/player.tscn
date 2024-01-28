@@ -4,9 +4,7 @@
 [ext_resource type="ArrayMesh" uid="uid://fmei57yf86n1" path="res://asset/Mini Dungeon/character-human.obj" id="1_advhw"]
 [ext_resource type="Texture2D" uid="uid://bxd24qoo0ftgn" path="res://asset/Mini Dungeon/Textures/colormap.png" id="3_m0hiq"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y6jse"]
-radius = 0.25
-height = 0.8
+[sub_resource type="BoxShape3D" id="BoxShape3D_xgqgo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycxmn"]
 render_priority = -1
@@ -65,8 +63,8 @@ acceleration = 10.0
 jump_initial_impulse = 5.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
-shape = SubResource("CapsuleShape3D_y6jse")
+transform = Transform3D(0.496916, 0, 0, 0, 0.597137, 0, 0, 0, 0.379939, 0, 0.319258, 0)
+shape = SubResource("BoxShape3D_xgqgo")
 
 [node name="Body" type="Node3D" parent="."]
 

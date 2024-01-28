@@ -6,6 +6,7 @@ extends CharacterBody3D
 @export var rotation_speed := 9.0
 @export var stopping_speed := 2.0
 @export var moving_objects_speed_modifier: float = 0.7
+@export var movement_on_air_penalizer: float = 0.96
 @export_category("Air movement")
 @export var jump_initial_impulse := 12.0
 
@@ -35,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector3.ZERO
 	
 	if not is_on_floor():
-		velocity *= 0.96
+		velocity *= movement_on_air_penalizer
 	
 	velocity.y = y_velocity
 	if velocity.y < 0:

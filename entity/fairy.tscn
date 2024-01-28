@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://8nsp36ic37w6"]
+[gd_scene load_steps=10 format=3 uid="uid://8nsp36ic37w6"]
 
 [ext_resource type="Script" path="res://entity/fairy.gd" id="1_2ouis"]
 
@@ -54,9 +54,6 @@ radius = 2.556
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_l5uqd"]
 radius = 1.82
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_pdhhf"]
-radius = 0.2
 
 [node name="Fairy" type="CharacterBody3D" groups=["fairy"]]
 collision_layer = 8
@@ -115,15 +112,7 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ToggleOutlineArea"]
 shape = SubResource("SphereShape3D_l5uqd")
 
-[node name="ChargeArea" type="Area3D" parent="."]
-collision_layer = 8
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ChargeArea"]
-shape = SubResource("SphereShape3D_pdhhf")
-
 [connection signal="area_entered" from="ToggleOutlineArea" to="." method="_on_toggle_outline_area_area_entered"]
 [connection signal="area_exited" from="ToggleOutlineArea" to="." method="_on_toggle_outline_area_area_exited"]
 [connection signal="body_entered" from="ToggleOutlineArea" to="." method="_on_toggle_outline_area_body_entered"]
 [connection signal="body_exited" from="ToggleOutlineArea" to="." method="_on_toggle_outline_area_body_exited"]
-[connection signal="area_entered" from="ChargeArea" to="." method="_on_charge_area_area_entered"]
