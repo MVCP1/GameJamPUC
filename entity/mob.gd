@@ -37,7 +37,7 @@ func get_average_color(texture: ViewportTexture) -> Color:
 
 func _physics_process(delta):
 	var light_value = $LightSensorScene.light_level
-	
+
 	if light_value < light_detection_threshold:
 		active = false if likes_light else true
 	else:

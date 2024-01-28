@@ -2,9 +2,7 @@ extends Node
 
 var current_level = 0
 var volume = 0.0
-#const levels = [
-	#
-#]
+
 
 func _process(_delta):
 	if Input.is_action_pressed("esc"):
@@ -12,6 +10,8 @@ func _process(_delta):
 
 func next_level():
 	current_level += 1
+	if current_level == 4:
+		get_tree().change_scene_to_file("res://UI/Scenes/menu.tscn")
 	get_tree().change_scene_to_file("res://scene/level"+str(current_level)+".tscn")
 
 	

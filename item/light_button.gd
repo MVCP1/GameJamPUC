@@ -8,7 +8,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	active = Game.get_fairy().global_position.distance_to($Off.global_position) <= fairy_distance
 	
 	$On.visible = active
