@@ -55,8 +55,8 @@ func _process(_delta):
 							_is_charging = true
 						#max_y_offset = 0.2
 						move_target = area
-			if move_target == null:
-				_can_move = not _can_move
+			#if move_target == null:
+				#_can_move = not _can_move
 	if Input.is_action_pressed('r_click'):
 		charging_pulse = true
 	if Input.is_action_just_released('r_click'):
