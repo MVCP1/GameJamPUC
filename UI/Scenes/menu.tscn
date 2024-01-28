@@ -1,0 +1,348 @@
+[gd_scene load_steps=10 format=3 uid="uid://dix156uax5p25"]
+
+[ext_resource type="Script" path="res://UI/Scripts/menu.gd" id="1_f5fqc"]
+[ext_resource type="Script" path="res://UI/Scripts/Play.gd" id="2_efjsm"]
+[ext_resource type="Script" path="res://UI/Scripts/ControleVolume.gd" id="3_awxll"]
+[ext_resource type="Texture2D" uid="uid://dbp3pxn62xmjl" path="res://UI/Assets/PNG/Double/Divider Fade/divider-fade-005.png" id="3_xoqt4"]
+[ext_resource type="AudioStream" uid="uid://cjy7y512b55ja" path="res://UI/Sound/ost_719268__universfield__starlight-harmonies.mp3" id="4_nojd0"]
+
+[sub_resource type="Animation" id="Animation_t5wm6"]
+resource_name = "Fade In"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Filtro:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Filtro:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Filtro:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hb1cf"]
+resource_name = "Fade Out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Filtro:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Filtro:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Filtro:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.6),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vn24t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Filtro:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Filtro:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Filtro:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2cnck"]
+_data = {
+"Fade In": SubResource("Animation_t5wm6"),
+"Fade Out": SubResource("Animation_hb1cf"),
+"RESET": SubResource("Animation_vn24t")
+}
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f5fqc")
+arrowMarginFromCenter = 310
+centerOffSet = 205
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 759.0
+offset_top = 195.0
+offset_right = 1161.0
+offset_bottom = 1025.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Titulo" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 80
+text = "Fairy Light"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="BotoesMenu" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Play" type="Button" parent="VBoxContainer/HBoxContainer/BotoesMenu"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Exit")
+theme_override_font_sizes/font_size = 54
+text = "Play"
+script = ExtResource("2_efjsm")
+
+[node name="Options" type="Button" parent="VBoxContainer/HBoxContainer/BotoesMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+text = "Options"
+
+[node name="Credits" type="Button" parent="VBoxContainer/HBoxContainer/BotoesMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+text = "Credits
+"
+
+[node name="Exit" type="Button" parent="VBoxContainer/HBoxContainer/BotoesMenu"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Play")
+theme_override_font_sizes/font_size = 54
+text = "Quit"
+
+[node name="BotoesCreditos" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Nomes" type="Label" parent="VBoxContainer/HBoxContainer/BotoesCreditos"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 50
+text = "Antônio Isaac
+
+Marcos Pacheco
+
+Guilherme Campos 
+
+Gabriel Aragão"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Espaço" type="Control" parent="VBoxContainer/HBoxContainer/BotoesCreditos"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/BotoesCreditos"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/BotoesCreditos/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Assets"
+
+[node name="assetCreditos" type="Button" parent="VBoxContainer/HBoxContainer/BotoesCreditos/HBoxContainer"]
+modulate = Color(0, 0.662745, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_pressed_color = Color(0, 0.937255, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.258824, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Kenney"
+flat = true
+
+[node name="volta" type="Button" parent="VBoxContainer/HBoxContainer/BotoesCreditos"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 40
+text = "Voltar"
+
+[node name="BotoesOpcoes" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Music Volume" type="Label" parent="VBoxContainer/HBoxContainer/BotoesOpcoes"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 50
+text = "Music Volume
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControleVolume" type="HSlider" parent="VBoxContainer/HBoxContainer/BotoesOpcoes"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_awxll")
+bus_name = "Musica"
+
+[node name="Espaço" type="Control" parent="VBoxContainer/HBoxContainer/BotoesOpcoes"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/BotoesOpcoes"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/BotoesOpcoes/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Assets"
+
+[node name="assetCreditos" type="Button" parent="VBoxContainer/HBoxContainer/BotoesOpcoes/HBoxContainer"]
+modulate = Color(0, 0.662745, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_pressed_color = Color(0, 0.937255, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.258824, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Kenney"
+flat = true
+
+[node name="voltaOpcoes" type="Button" parent="VBoxContainer/HBoxContainer/BotoesOpcoes"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 40
+text = "Voltar"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2cnck")
+}
+
+[node name="LeftArrow" type="Sprite2D" parent="."]
+position = Vector2(557, 267)
+texture = ExtResource("3_xoqt4")
+
+[node name="RightArrow" type="Sprite2D" parent="."]
+position = Vector2(1334, 267)
+texture = ExtResource("3_xoqt4")
+flip_h = true
+
+[node name="Filtro" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -90.0
+offset_top = -58.0
+offset_right = 2025.0
+offset_bottom = 1140.0
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 1
+stream = ExtResource("4_nojd0")
+volume_db = -10.0
+autoplay = true
+bus = &"Musica"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesMenu/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesMenu/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesMenu/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesMenu/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesCreditos/HBoxContainer/assetCreditos" to="." method="_on_asset_creditos_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesCreditos/volta" to="." method="_on_volta_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesOpcoes/HBoxContainer/assetCreditos" to="." method="_on_asset_creditos_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BotoesOpcoes/voltaOpcoes" to="." method="_on_volta_opcoes_pressed"]

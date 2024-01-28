@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://e34bhouvcoh6"]
+
+[ext_resource type="Texture2D" uid="uid://b5bsxv4dxr7bk" path="res://UI/Assets/Barra.png" id="1_75qas"]
+[ext_resource type="Texture2D" uid="uid://nfbpgqcmytlb" path="res://UI/Assets/New Piskel.png" id="2_dhp52"]
+[ext_resource type="Script" path="res://UI/Scripts/explosão_de_luz.gd" id="3_kluvu"]
+
+[node name="Explosão de Luz" type="TextureProgressBar"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3, 3)
+fill_mode = 4
+texture_under = ExtResource("1_75qas")
+texture_progress = ExtResource("2_dhp52")
+script = ExtResource("3_kluvu")

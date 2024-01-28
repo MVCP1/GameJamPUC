@@ -1,0 +1,182 @@
+[gd_scene load_steps=7 format=3 uid="uid://dx5nl8dx8dr6b"]
+
+[ext_resource type="Texture2D" uid="uid://cx4lrp6bosbd4" path="res://UI/Assets/icon_Godot.png" id="1_qmr3w"]
+[ext_resource type="Script" path="res://UI/Scripts/intro_screen.gd" id="1_xqeea"]
+
+[sub_resource type="Animation" id="Animation_lx32k"]
+resource_name = "Fade In"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Filtro:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 2.3, 3),
+"transitions": PackedFloat32Array(3, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Filtro:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_t2jd1"]
+resource_name = "Fade Out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Filtro:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 2.4, 3),
+"transitions": PackedFloat32Array(1, 3, 26.6296, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Filtro:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_sggyv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Filtro:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Filtro:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_feyma"]
+_data = {
+"Fade In": SubResource("Animation_lx32k"),
+"Fade Out": SubResource("Animation_t2jd1"),
+"RESET": SubResource("Animation_sggyv")
+}
+
+[node name="IntroScreen" type="Node2D"]
+script = ExtResource("1_xqeea")
+
+[node name="Fundo" type="ColorRect" parent="."]
+offset_left = -329.0
+offset_top = -219.0
+offset_right = 2357.0
+offset_bottom = 1381.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+offset_left = -689.0
+offset_top = -150.0
+offset_right = 2439.0
+offset_bottom = 1475.0
+color = Color(0.101961, 0.101961, 0.101961, 1)
+
+[node name="PiramutabaTeam" type="ColorRect" parent="."]
+offset_left = -323.0
+offset_top = -146.0
+offset_right = 2337.0
+offset_bottom = 1334.0
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="PiramutabaTeam"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "A Piramutaba Team Production"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Made wGodot" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 608.0
+offset_top = 183.0
+offset_right = 1283.0
+offset_bottom = 975.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GridContainer" type="GridContainer" parent="Made wGodot"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Made wGodot/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_qmr3w")
+expand_mode = 4
+
+[node name="MadeWithGodot" type="Label" parent="Made wGodot/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 80
+text = "Made With Godot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Filtro" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -90.0
+offset_top = -58.0
+offset_right = 2025.0
+offset_bottom = 1140.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_feyma")
+}

@@ -1,6 +1,12 @@
 extends Node
 
-var current_level = 1
+var current_level = 0
+var volume = 0.0
+
+
+func _process(_delta):
+	if Input.is_action_pressed("esc"):
+		get_tree().quit()
 
 func next_level():
 	current_level += 1
