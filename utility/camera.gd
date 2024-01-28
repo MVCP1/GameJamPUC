@@ -42,7 +42,7 @@ func getMousePosition():# Get the mouse position in screen coordinates
 	var ray_end = ray_origin + project_ray_normal(mouse_pos_screen) * RAY_LENGTH
 	
 	var space_state = get_world_3d().direct_space_state
-	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
+	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_end, 1)
 	var result = space_state.intersect_ray(query)
 	var intersection_point = Plane(Vector3(0, 1, 0), Game.get_player().position.y).intersects_ray(ray_origin, ray_direction)
 	if plane_projection:

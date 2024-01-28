@@ -1,7 +1,7 @@
 extends Node3D
 
 var active = false
-
+var fairy_distance = 0.5
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -9,10 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var is_pressed = false
-	for body in $Area3D.get_overlapping_bodies():
-		is_pressed = is_pressed or body.is_in_group('can_press')
-	active = is_pressed
+	active = Game.get_fairy().global_position.distance_to($Off.global_position) <= fairy_distance
 	
 	$On.visible = active
 	$Off.visible = not active
