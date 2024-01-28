@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://crdp5f1iar5n5" path="res://map/tile_box.tscn" id="1_fcksi"]
 [ext_resource type="PackedScene" uid="uid://nlidij6kaaek" path="res://entity/player.tscn" id="2_nf5h7"]
 [ext_resource type="PackedScene" uid="uid://bfstt1cttjn45" path="res://map/movable_box.tscn" id="2_oqqrs"]
-[ext_resource type="PackedScene" uid="uid://c484e3nk3hpmf" path="res://map/box.tscn" id="2_yahha"]
+[ext_resource type="PackedScene" uid="uid://c484e3nk3hpmf" path="res://map/-----box.tscn" id="2_yahha"]
 [ext_resource type="PackedScene" uid="uid://8nsp36ic37w6" path="res://entity/fairy.tscn" id="3_3xkhv"]
 [ext_resource type="PackedScene" uid="uid://caswk7rd54bhd" path="res://utility/camera.tscn" id="3_hegle"]
 [ext_resource type="PackedScene" uid="uid://ckl7l6l84vgwb" path="res://map/platform.tscn" id="4_4ia5w"]
@@ -129,11 +129,6 @@ light_angular_distance = 46.21
 
 [node name="Player" parent="." instance=ExtResource("2_nf5h7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05086, 0)
-move_speed = 4.5
-rotation_speed = 9.0
-stopping_speed = 2.0
-moving_objects_speed_modifier = 0.7
-movement_on_air_penalizer = 0.96
 
 [node name="Fairy" parent="." instance=ExtResource("3_3xkhv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73205, -1.42814)

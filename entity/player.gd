@@ -95,7 +95,7 @@ func _try_to_push(vel_move: Vector3) -> void:
 	# try grabbing
 	for body in bodies:
 		if body.is_in_group("movable"):
-			if(vel_move.dot(body.global_position - global_position) > 0):
+			if(vel_move.dot(body.global_position - global_position) > 0.75):
 				body.velocity = vel_move
 				body.move_and_slide()
 				_is_grabbing = true

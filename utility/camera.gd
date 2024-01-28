@@ -48,12 +48,10 @@ func getMousePosition():# Get the mouse position in screen coordinates
 	if plane_projection:
 		return intersection_point if intersection_point else Vector3(0,0,0)
 	else:
-		return result.position if result else intersection_point
+		return result.position if result else (intersection_point if intersection_point else Vector3(0,0,0))
 
 
 func setCameraPosition():
-	#if (Game.get_player().position.distance_to(centerAreaPosition) > playerAreaDistance):
-	
 	var playerToTarget : Vector3 = (getMousePosition() if Game.get_fairy()._can_move else Game.get_fairy().global_position ) - Game.get_player().position
 	centerAreaPosition = Game.get_player().position + (playerToTarget.normalized() * min(mouseMaxDistance, playerToTarget.length()/2)) 
 	#centerAreaPosition = Game.get_player().position.move_toward(get_mouse_position(), mouseMaxDistance)

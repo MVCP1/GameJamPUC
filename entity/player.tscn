@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://nlidij6kaaek"]
+[gd_scene load_steps=10 format=3 uid="uid://nlidij6kaaek"]
 
 [ext_resource type="Script" path="res://entity/player.gd" id="1_2y2i6"]
-[ext_resource type="ArrayMesh" uid="uid://fmei57yf86n1" path="res://asset/Mini Dungeon/character-human.obj" id="1_advhw"]
-[ext_resource type="Texture2D" uid="uid://bxd24qoo0ftgn" path="res://asset/Mini Dungeon/Textures/colormap.png" id="3_m0hiq"]
+[ext_resource type="ArrayMesh" uid="uid://fmei57yf86n1" path="res://assets/Mini Dungeon/character-human.obj" id="2_rei6n"]
+[ext_resource type="Texture2D" uid="uid://bxd24qoo0ftgn" path="res://assets/Mini Dungeon/Textures/colormap.png" id="3_2i16e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xgqgo"]
 
@@ -13,44 +13,20 @@ no_depth_test = true
 shading_mode = 0
 albedo_color = Color(0.356863, 0.803922, 0.823529, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5yxb"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hayp4"]
 resource_name = "colormap"
 transparency = 4
 vertex_color_is_srgb = true
-albedo_texture = ExtResource("3_m0hiq")
+albedo_texture = ExtResource("3_2i16e")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slhf7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nw5wl"]
 resource_name = "colormap"
 transparency = 4
 vertex_color_is_srgb = true
-albedo_texture = ExtResource("3_m0hiq")
+albedo_texture = ExtResource("3_2i16e")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_luca3"]
-resource_name = "colormap"
-transparency = 4
-vertex_color_is_srgb = true
-albedo_texture = ExtResource("3_m0hiq")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btepa"]
-resource_name = "colormap"
-transparency = 4
-vertex_color_is_srgb = true
-albedo_texture = ExtResource("3_m0hiq")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7beb0"]
-resource_name = "colormap"
-transparency = 4
-vertex_color_is_srgb = true
-albedo_texture = ExtResource("3_m0hiq")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtoat"]
-resource_name = "colormap"
-transparency = 4
-vertex_color_is_srgb = true
-albedo_texture = ExtResource("3_m0hiq")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ycaor"]
-size = Vector3(1.83105, 2.18994, 0.680664)
+[sub_resource type="SphereShape3D" id="SphereShape3D_65i3g"]
+radius = 0.775
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vhwhq"]
 size = Vector3(1.5, 1.5, 1.5)
@@ -71,14 +47,14 @@ shape = SubResource("BoxShape3D_xgqgo")
 [node name="Character-human" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 material_overlay = SubResource("StandardMaterial3D_ycxmn")
-mesh = ExtResource("1_advhw")
+mesh = ExtResource("2_rei6n")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_c5yxb")
-surface_material_override/1 = SubResource("StandardMaterial3D_slhf7")
-surface_material_override/2 = SubResource("StandardMaterial3D_luca3")
-surface_material_override/3 = SubResource("StandardMaterial3D_btepa")
-surface_material_override/4 = SubResource("StandardMaterial3D_7beb0")
-surface_material_override/5 = SubResource("StandardMaterial3D_mtoat")
+surface_material_override/0 = SubResource("StandardMaterial3D_hayp4")
+surface_material_override/1 = SubResource("StandardMaterial3D_hayp4")
+surface_material_override/2 = SubResource("StandardMaterial3D_nw5wl")
+surface_material_override/3 = SubResource("StandardMaterial3D_nw5wl")
+surface_material_override/4 = SubResource("StandardMaterial3D_nw5wl")
+surface_material_override/5 = SubResource("StandardMaterial3D_nw5wl")
 
 [node name="InteractDetector" type="Area3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.0645884, 0.248468, -0.34997)
@@ -87,7 +63,7 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractDetector"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.191161, 0.244833, -0.021871)
-shape = SubResource("BoxShape3D_ycaor")
+shape = SubResource("SphereShape3D_65i3g")
 
 [node name="SaveFairyArea" type="Area3D" parent="."]
 collision_layer = 4
